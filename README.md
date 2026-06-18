@@ -40,6 +40,20 @@ Dear Style should teach users how to understand their own color and style reacti
 - iOS app
 - Future AI/agentic recommendation layer
 
+## Development Commands
+
+Common local workflows are available from the root `Makefile`.
+
+```bash
+make help
+make backend-test
+make web-dev
+make ios-build
+make check
+```
+
+Use `make doctor` to see which local tools are missing.
+
 ## Suggested Stack
 
 - Backend: Python FastAPI

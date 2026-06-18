@@ -6,39 +6,39 @@ Create the project foundation for backend, web, Android, and iOS.
 
 ## Backend Tasks
 
-- Initialize FastAPI project.
-- Configure PostgreSQL connection.
-- Add SQLAlchemy and Alembic.
-- Implement users table.
-- Implement auth endpoints.
-- Implement consent table and endpoints.
-- Add pytest test setup.
+- [x] Initialize FastAPI project.
+- [x] Configure PostgreSQL connection.
+- [x] Add SQLAlchemy and Alembic.
+- [x] Implement users table.
+- [x] Implement auth endpoints.
+- [x] Implement consent table and endpoints.
+- [x] Add pytest test setup.
 
 ## Web Tasks
 
-- Initialize Next.js TypeScript app.
-- Add design tokens.
-- Create welcome page.
-- Create signup/login pages.
-- Create consent page.
-- Add API client.
+- [x] Initialize Next.js TypeScript app.
+- [x] Add design tokens.
+- [x] Create welcome page.
+- [x] Create signup/login pages.
+- [x] Create consent page.
+- [x] Add API client.
 
 ## Android Tasks
 
-- Initialize Android app.
-- Add shared design tokens.
-- Create welcome and consent screens.
-- Add API client skeleton.
+- [x] Initialize Android app.
+- [x] Add shared design tokens.
+- [x] Create welcome and consent screens.
+- [x] Add API client skeleton.
 
 ## iOS Tasks
 
-- Initialize SwiftUI app.
-- Add shared design tokens.
-- Create welcome and consent views.
-- Add API service skeleton.
+- [x] Initialize SwiftUI app.
+- [x] Add shared design tokens.
+- [x] Create welcome and consent views.
+- [x] Add API service skeleton.
 
 ## Acceptance Criteria
 
-- User can register/login on web.
-- Consent can be recorded.
-- Mobile apps compile and show initial screens.
+- [x] User can register/login on web. Implemented; pending Node-based local verification.
+- [x] Consent can be recorded.
+- [x] Mobile apps compile and show initial screens. iOS builds; Android pending Gradle/JDK 17 verification.

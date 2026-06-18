@@ -2,7 +2,7 @@
 
 ## Stack
 
-- Python 3.12+
+- Python 3.14+
 - FastAPI
 - PostgreSQL
 - SQLAlchemy 2.x
