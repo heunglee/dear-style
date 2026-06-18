@@ -2,102 +2,87 @@
 
 ## Overview
 
-Dear Style is a multi-platform application with a shared backend API and native/web clients.
+Dear Style v2 is a cross-platform application with a shared backend, responsive web app, Android app, and iOS app.
+
+The MVP should emphasize structured content, deterministic practice scoring, image upload, and review flows. AI/vision modules should be isolated behind interfaces so the platform can evolve without blocking the initial release.
 
 ## Components
 
-- Backend API: FastAPI
-- Database: PostgreSQL
-- Object Storage: S3-compatible storage
-- Async Processing: Redis + Celery or Dramatiq
-- Web Client: Next.js + TypeScript
-- Android Client: Kotlin or Java
-- iOS Client: Swift + SwiftUI
-- AI Services: modular internal services
+```text
+Web App
+Android App
+ iOS App
+    ↓
+API Gateway / FastAPI Backend
+    ↓
+PostgreSQL
+Object Storage
+Optional Job Queue
+Optional Vision Service
+```
 
-## High-Level Flow
+## Backend
 
-1. User signs in.
-2. User accepts face image consent.
-3. User uploads or captures face image.
-4. Backend stores image asset and derived metadata.
-5. User starts comparison session.
-6. Backend returns test pairs and overlay parameters.
-7. Client renders A/B options.
-8. User votes.
-9. Optional friend-review link is generated.
-10. Friend votes are collected.
-11. Report is generated from self and friend choices.
-12. Future AI agents enrich the report.
+Responsibilities:
 
-## Service Boundaries
+- authentication
+- user profile management
+- lesson catalog APIs
+- drawing template APIs
+- practice session APIs
+- trace attempt scoring
+- image upload metadata
+- review links and votes
+- report generation
 
-### Auth Service
+## Web
 
-- user registration
-- login
-- session management
-- password reset or OAuth
+Responsibilities:
 
-### User Profile Service
+- landing page
+- account flow
+- lesson browsing
+- trace practice in browser canvas
+- review pages for friends
+- reports
 
-- profile metadata
-- consent state
-- preference history
+## Android
 
-### Image Service
+Responsibilities:
 
-- upload images
-- generate signed URLs
-- manage deletion
-- store derived masks and thumbnails
+- native lesson flow
+- canvas trace practice
+- camera/mirror mode
+- image upload
+- offline-friendly practice drafts
 
-### Comparison Service
+## iOS
 
-- create sessions
-- define comparison pairs
-- collect votes
-- compute summary statistics
+Responsibilities:
 
-### Friend Review Service
+- native lesson flow
+- SwiftUI canvas trace practice
+- camera/mirror mode
+- image upload
+- optional Apple Vision integration
 
-- create public review tokens
-- validate review links
-- collect reviewer votes
-- enforce expiry and abuse controls
+## Vision Service
 
-### Report Service
+Deferred but interface-ready.
 
-- aggregate self and friend votes
-- compute tendency labels
-- generate explanations
+Potential features:
 
-### AI Service
+- face landmarks
+- eye landmarks
+- before/after alignment assistance
+- basic shape hints
 
-- optional image observation
-- color harmony scoring
-- future style recommendation
+The MVP must not depend on this service for core value.
 
-## Deployment Environments
+## Storage
 
-- local
-- staging
-- production
+Image files should be stored outside the relational database. Store only metadata and references in PostgreSQL.
 
-## Security Requirements
+## Privacy
 
-- HTTPS only
-- signed image URLs
-- short-lived friend review tokens
-- rate limits on public review endpoints
-- strict CORS
-- consent-gated image processing
-- user-controlled deletion
-
-## Data Retention
-
-Default recommendation:
-
-- Store raw images only with explicit consent.
-- Store derived comparison decisions and anonymized metadata for product improvement.
-- Provide delete-my-data functionality.
+Face images are sensitive. Default retention should be minimal. Users must be able to delete uploaded images.

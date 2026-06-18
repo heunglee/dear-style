@@ -1,15 +1,13 @@
-# Backend Specification
+# Backend Spec
 
 ## Stack
 
-- Python 3.14+
+- Python 3.12+
 - FastAPI
 - PostgreSQL
 - SQLAlchemy 2.x
 - Alembic
 - Pydantic
-- Redis
-- Celery or Dramatiq
 - pytest
 
 ## Modules
@@ -17,95 +15,76 @@
 ```text
 app/
   main.py
+  api/
+    lessons.py
+    practice.py
+    media.py
+    reviews.py
+    reports.py
   core/
     config.py
     security.py
-    database.py
-  auth/
-  users/
-  consents/
-  images/
-  comparisons/
-  reviews/
-  reports/
-  products/
-  recommendations/
-  ai/
+  db/
+    session.py
+    models.py
+    migrations/
+  services/
+    trace_scoring.py
+    review_summary.py
+    media_storage.py
+  schemas/
+    lessons.py
+    practice.py
+    reviews.py
 ```
 
-## Core Services
+## Required Services
 
-### AuthService
+### TraceScoringService
 
-- register user
-- authenticate user
-- issue session/token
-- get current user
+Input:
 
-### ConsentService
+- target path
+- user path
 
-- record consent
-- check required consent
-- provide audit trail
+Output:
 
-### ImageService
+- angle_score
+- length_score
+- smoothness_score
+- endpoint_score
+- total_score
+- feedback
 
-- create upload URL
-- confirm upload
-- create signed read URL
-- delete image
-- enqueue optional image validation
+### LessonService
 
-### ComparisonService
-
-- create comparison session
-- generate comparison pairs
-- retrieve session
-- complete session
+Manages content-backed style lessons and drawing templates.
 
 ### ReviewService
 
-- submit self review
-- create friend link
-- validate friend token
-- submit friend review
+Creates review sessions and aggregates votes.
 
-### ReportService
+### MediaService
 
-- aggregate votes
-- compute tendency scores
-- generate explainable report JSON
+Creates upload URLs and tracks media metadata.
 
-### ProductService
+## Seed Data
 
-- manage product catalog
-- query products by tags
+Initial lessons:
 
-### RecommendationService
+- Natural Tightline
+- Soft Outer Third Line
+- Soft Cat Eye
+- Classic Cat Eye
+- Puppy Eye
+- Horizontal Extension
 
-- recommend products based on report
-- store recommendation events
+## Testing
 
-## Background Jobs
+Unit tests required for:
 
-- validate image quality
-- generate thumbnails
-- generate rendered comparison images if server-side rendering is enabled
-- generate reports asynchronously for larger sessions
-- clean expired friend-review links
-
-## Testing Requirements
-
-- unit tests for scoring functions
-- API tests for all endpoints
-- consent enforcement tests
-- friend link expiry tests
-- image deletion tests
-- report generation tests
-
-## Backend Acceptance Criteria
-
-- All MVP APIs are implemented.
-- All privacy-critical actions are tested.
-- OpenAPI schema is generated.
-- Local development works with Docker Compose.
+- trace scoring
+- lesson filtering
+- review token expiration
+- review aggregation
+- media soft delete

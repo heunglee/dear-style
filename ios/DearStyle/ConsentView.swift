@@ -6,6 +6,7 @@ struct ConsentView: View {
     @State private var friendReviewConsent = false
     @State private var anonymizedAnalyticsConsent = false
     @State private var saved = false
+    @State private var showsColorHarmony = false
 
     var body: some View {
         ZStack {
@@ -50,6 +51,7 @@ struct ConsentView: View {
 
                     Button {
                         saved = true
+                        showsColorHarmony = true
                     } label: {
                         Text("Save consent")
                             .frame(maxWidth: .infinity)
@@ -63,6 +65,9 @@ struct ConsentView: View {
         }
         .navigationTitle("Consent")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $showsColorHarmony) {
+            ColorHarmonyView()
+        }
     }
 }
 

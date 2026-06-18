@@ -1,49 +1,38 @@
-# Implementation Notes for Codex
+# Implementation Notes
 
-## Do First
+## Pivot Summary
 
-Implement the relational MVP before adding complex AI.
+The previous documentation emphasized color harmony and undertone testing. This v2 documentation changes the initial product direction to makeup drawing education and practice.
 
-## Avoid Premature Complexity
+## Why Pivot
 
-Do not add:
+Digital color testing has practical problems:
 
-- graph database
-- vector database
-- photorealistic try-on
-- advanced ML training
-- B2B dashboard
+- material reflection is hard to simulate
+- lighting changes results
+- phone camera processing changes colors
+- digital overlays can mislead users
+- high-fidelity virtual try-on is costly
 
-until the comparison and report system works.
+## New MVP Advantage
 
-## MVP Report Calculation
+Eyeliner and lip-line practice are shape/geometry problems. They are more stable, easier to teach, and more actionable for users.
 
-Start with deterministic scoring.
+## Engineering Priority
 
-Example:
+Build:
 
-- warm score: gold, ivory, camel, coral selections
-- cool score: silver, pure white, cool grey, rose selections
-- neutral: close score or inconsistent results
+1. lesson catalog
+2. trace practice engine
+3. media upload
+4. review flow
+5. report flow
 
-## Test Data
+Do not build:
 
-Create seed comparison pairs and product examples.
+1. AR makeup rendering
+2. undertone scoring
+3. clothing virtual try-on
+4. product recommender
 
-## Quality Gates
-
-Every phase must pass:
-
-- backend tests
-- API contract checks
-- consent enforcement checks
-- UI smoke tests
-
-## Privacy Gates
-
-Before production:
-
-- verify signed URLs
-- verify deletion
-- verify expired friend links
-- verify no public image leakage
+until the core practice loop is validated.

@@ -1,46 +1,24 @@
-# Mobile Shared Specification
+# Mobile Spec
 
-## Shared Mobile Goals
+## Shared Mobile Requirements
 
-Android and iOS should provide equivalent core flows:
+- Native camera access
+- Trace practice canvas
+- Image upload
+- Haptic feedback when available
+- Offline draft support for trace attempts
 
-- consent
-- image capture/upload
-- test selection
-- A/B comparison
-- self review
-- friend link sharing
-- report viewing
-- privacy settings
+## Mirror Mode
 
-## Platform-Specific Guidelines
+Mirror mode uses the front camera. It should not promise precise AR alignment in the MVP.
 
-Use native photo/camera APIs.
+Features:
 
-Use native share sheets.
+- front camera preview
+- step checklist
+- optional static reference line
+- capture before/after
 
-Respect each platform's permission model.
+## Practice Mode
 
-## Offline Behavior
-
-MVP does not require offline mode.
-
-However, clients may temporarily store unsent votes until submission.
-
-## Image Handling
-
-- Resize client-side before upload if needed.
-- Preserve enough resolution for face and overlay rendering.
-- Avoid storing images in local persistent storage unless necessary.
-
-## Analytics
-
-Track only privacy-safe events:
-
-- test started
-- test completed
-- report viewed
-- friend link created
-- recommendation clicked
-
-Do not track raw facial attributes as analytics events.
+Finger/stylus tracing should be smooth and responsive. Store local attempts until uploaded.

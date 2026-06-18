@@ -1,74 +1,47 @@
-# Android Specification
+# Android Spec
 
 ## Stack
 
 Preferred:
 
-- Kotlin
-- Jetpack Compose
-- Retrofit or Ktor client
-- Coil for image loading
-- Room only if offline cache is needed
+- Kotlin or Java-compatible architecture
+- Jetpack Compose preferred if Kotlin is allowed
+- CameraX
+- Retrofit/OkHttp
+- Room optional for local drafts
 
-Acceptable alternative:
+If Java is required:
 
-- Java with XML views if project constraints require it
-
-## Permissions
-
-- Camera
-- Photo picker
-
-Use Android Photo Picker where possible to reduce permission burden.
+- Android Views
+- custom View for trace practice
+- CameraX Java APIs
 
 ## Screens
 
-- WelcomeActivity / WelcomeScreen
-- ConsentScreen
-- UploadScreen
-- TestSelectionScreen
-- ComparisonScreen
-- FriendShareScreen
-- ReportScreen
-- PrivacySettingsScreen
+- HomeActivity
+- LessonListActivity
+- LessonDetailActivity
+- TracePracticeActivity
+- MirrorModeActivity
+- UploadResultActivity
+- ReportActivity
 
-## Native Flows
+## Trace Practice
 
-### Capture / Upload
+Implement as a custom drawing view.
 
-- Launch camera or photo picker.
-- Show preview.
-- Confirm consent before upload.
-- Upload via signed URL.
+Responsibilities:
 
-### Comparison
+- draw target path
+- capture user path
+- normalize coordinates
+- send to backend
+- display score
 
-- Display A/B images.
-- Use large touch targets.
-- Allow Tie / Unsure.
-- Save votes locally until submitted.
+## Mirror Mode
 
-### Share
+Use front camera preview with checklist overlay. Avoid precision AR promises in MVP.
 
-Use Android Sharesheet for friend review link.
+## Offline Behavior
 
-## API Layer
-
-Create typed API client methods matching API_SPEC.md.
-
-## Error Handling
-
-Show user-friendly messages for:
-
-- upload failure
-- expired friend link
-- missing consent
-- network failure
-
-## Android Acceptance Criteria
-
-- Native user can upload image.
-- Native user can complete a comparison session.
-- Native user can share friend-review link.
-- Native user can view report.
-- UI follows shared design tokens.
+Practice attempts may be saved locally and uploaded later.

@@ -1,122 +1,81 @@
 # AGENTS.md
 
-## Purpose
+## Agent Principles
 
-This file defines AI-assisted development and runtime agents for Dear Style.
+Agents in Dear Style should support education, practice, and review. They should not overclaim diagnostic certainty.
 
-## Development Agents
-
-### Product Spec Agent
+## Drawing Coach Agent
 
 Responsibilities:
 
-- Maintain product intent consistency.
-- Prevent scope creep away from comparison-based style discovery.
-- Ensure features map to documented milestones.
-
-### Backend Agent
-
-Responsibilities:
-
-- Implement FastAPI services.
-- Maintain PostgreSQL schema.
-- Implement auth, image upload, comparison sessions, reviews, and reports.
-- Enforce privacy and consent rules.
-
-### Web Agent
-
-Responsibilities:
-
-- Implement Next.js user flows.
-- Build responsive comparison UI.
-- Support shareable friend review pages.
-- Implement report visualization.
-
-### Android Agent
-
-Responsibilities:
-
-- Implement native Android capture, upload, A/B comparison, and review flows.
-- Keep UI consistent with design tokens.
-- Use platform-native permissions and privacy messaging.
-
-### iOS Agent
-
-Responsibilities:
-
-- Implement native iOS capture, upload, A/B comparison, and review flows.
-- Use SwiftUI and platform-native permission flows.
-- Keep UI consistent with design tokens.
-
-### QA Agent
-
-Responsibilities:
-
-- Verify cross-platform feature parity.
-- Test image upload, review link expiry, consent, and report calculations.
-- Prevent regressions in privacy-critical paths.
-
-## Runtime Product Agents
-
-### Color Analysis Agent
-
-Responsibilities:
-
-- Process A/B comparison results.
-- Estimate undertone tendencies from repeated comparison patterns.
-- Generate confidence and consistency scores.
+- Recommend eyeliner and lip-line practice modules based on user goals.
+- Explain line start point, endpoint, angle, length, thickness, and sequence.
+- Generate step-by-step instructions.
+- Provide feedback on user practice data when available.
 
 Inputs:
 
-- self votes
-- friend votes
-- AI-assisted image observations
-- environment metadata
+- Desired impression
+- Eye shape metadata when available
+- Face shape metadata when available
+- User skill level
+- Practice history
 
 Outputs:
 
-- warm/cool/neutral tendency
-- color-family preferences
-- confidence score
-- explanatory report fragments
+- Recommended drawing style
+- Practice template
+- Instructions
+- Improvement tips
 
-### Friend Review Agent
-
-Responsibilities:
-
-- Generate public review sessions.
-- Collect reviewer choices.
-- Prevent abusive or appearance-ranking prompts.
-- Aggregate anonymous social preference patterns.
-
-### Education Agent
+## Trace Evaluation Agent
 
 Responsibilities:
 
-- Explain undertone, brightness, saturation, contrast, and harmony.
-- Convert technical terms into simple visual explanations.
-- Avoid deterministic or exclusionary language.
+- Evaluate screen tracing results.
+- Score angle match, length match, smoothness, symmetry, endpoint accuracy, and repeat consistency.
 
-### Style Shape Agent
+No camera analysis is required for this agent.
 
-Responsibilities:
-
-- Explain how eyeliner, eyebrow, and lip line shapes influence perceived impression.
-- Support future virtual try-on workflows.
-
-### Recommendation Agent
+## Mirror Guidance Agent
 
 Responsibilities:
 
-- Recommend lip, foundation, eyeliner, eyewear, clothing colors, and future wardrobe combinations.
-- Use user profile, preference history, and product catalog.
-- Explain why a recommendation is made.
+- Provide mirror-mode instructions.
+- Warn users that live AR overlays may shift if the face moves.
+- Prefer reference points and step-by-step guidance over precision overlays.
 
-### Brand Insight Agent
+## Result Review Agent
 
 Responsibilities:
 
-- Aggregate anonymized preference data.
-- Identify shade gaps.
-- Support product development decisions.
-- Never expose personally identifiable user data.
+- Compare before/after uploads.
+- Summarize self review, friend review, and optional AI review.
+- Avoid attractiveness scoring.
+
+## Friend Review Agent
+
+Responsibilities:
+
+- Create shareable review links.
+- Collect reviewer ratings for one user's A/B choices.
+- Ensure reviewers compare looks, not people.
+
+## Appearance Education Agent
+
+Responsibilities:
+
+- Explain how shape choices create impressions.
+- Explain eyeliner, brow, and lip-line concepts.
+- Explain undertone only as an optional concept, not as the core product claim.
+
+## Color Exploration Agent
+
+Deferred.
+
+Responsibilities when enabled:
+
+- Run low-confidence color preference exploration.
+- Clearly label digital color limitations.
+- Avoid definitive undertone diagnosis from uncontrolled photos.
+

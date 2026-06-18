@@ -1,187 +1,148 @@
 # Database Schema
 
-## Notes
+PostgreSQL is the primary database.
 
-Use PostgreSQL. UUID primary keys are recommended.
+## users
 
-## Tables
+```sql
+CREATE TABLE users (
+  id UUID PRIMARY KEY,
+  email TEXT UNIQUE NOT NULL,
+  display_name TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
 
-### users
+## profiles
 
-- id UUID PK
-- email TEXT UNIQUE NOT NULL
-- password_hash TEXT NULL
-- display_name TEXT NULL
-- created_at TIMESTAMPTZ NOT NULL
-- updated_at TIMESTAMPTZ NOT NULL
+```sql
+CREATE TABLE profiles (
+  user_id UUID PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  skill_level TEXT DEFAULT 'beginner',
+  preferred_impressions JSONB DEFAULT '[]'::jsonb,
+  privacy_settings JSONB DEFAULT '{}'::jsonb,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
 
-### user_consents
+## style_lessons
 
-- id UUID PK
-- user_id UUID FK users.id
-- consent_type TEXT NOT NULL
-- granted BOOLEAN NOT NULL
-- version TEXT NOT NULL
-- created_at TIMESTAMPTZ NOT NULL
+```sql
+CREATE TABLE style_lessons (
+  id UUID PRIMARY KEY,
+  category TEXT NOT NULL,
+  slug TEXT UNIQUE NOT NULL,
+  title TEXT NOT NULL,
+  target_impressions JSONB NOT NULL DEFAULT '[]'::jsonb,
+  difficulty TEXT NOT NULL DEFAULT 'beginner',
+  description TEXT NOT NULL,
+  instructions JSONB NOT NULL DEFAULT '[]'::jsonb,
+  common_mistakes JSONB NOT NULL DEFAULT '[]'::jsonb,
+  is_active BOOLEAN NOT NULL DEFAULT true,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
 
-Consent types:
+## drawing_templates
 
-- face_image_upload
-- raw_image_storage
-- friend_review_sharing
-- anonymized_analytics
+```sql
+CREATE TABLE drawing_templates (
+  id UUID PRIMARY KEY,
+  lesson_id UUID NOT NULL REFERENCES style_lessons(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  geometry_type TEXT NOT NULL,
+  normalized_path JSONB NOT NULL,
+  reference_points JSONB NOT NULL DEFAULT '{}'::jsonb,
+  scoring_rules JSONB NOT NULL DEFAULT '{}'::jsonb,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
 
-### image_assets
+## practice_sessions
 
-- id UUID PK
-- user_id UUID FK users.id
-- storage_key TEXT NOT NULL
-- asset_type TEXT NOT NULL
-- width INT NULL
-- height INT NULL
-- mime_type TEXT NOT NULL
-- raw_image BOOLEAN NOT NULL DEFAULT TRUE
-- consent_id UUID FK user_consents.id NULL
-- created_at TIMESTAMPTZ NOT NULL
-- deleted_at TIMESTAMPTZ NULL
+```sql
+CREATE TABLE practice_sessions (
+  id UUID PRIMARY KEY,
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  lesson_id UUID NOT NULL REFERENCES style_lessons(id),
+  status TEXT NOT NULL DEFAULT 'started',
+  started_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  completed_at TIMESTAMPTZ
+);
+```
 
-Asset types:
+## trace_attempts
 
-- original_face
-- thumbnail
-- face_mask
-- rendered_comparison
+```sql
+CREATE TABLE trace_attempts (
+  id UUID PRIMARY KEY,
+  practice_session_id UUID NOT NULL REFERENCES practice_sessions(id) ON DELETE CASCADE,
+  template_id UUID NOT NULL REFERENCES drawing_templates(id),
+  input_path JSONB NOT NULL,
+  angle_score NUMERIC(5,2),
+  length_score NUMERIC(5,2),
+  smoothness_score NUMERIC(5,2),
+  endpoint_score NUMERIC(5,2),
+  total_score NUMERIC(5,2),
+  feedback JSONB NOT NULL DEFAULT '{}'::jsonb,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
 
-### comparison_sessions
+## media_assets
 
-- id UUID PK
-- user_id UUID FK users.id
-- image_asset_id UUID FK image_assets.id
-- session_type TEXT NOT NULL
-- status TEXT NOT NULL
-- environment_label TEXT NULL
-- created_at TIMESTAMPTZ NOT NULL
-- completed_at TIMESTAMPTZ NULL
+```sql
+CREATE TABLE media_assets (
+  id UUID PRIMARY KEY,
+  user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+  storage_key TEXT NOT NULL,
+  media_type TEXT NOT NULL,
+  purpose TEXT NOT NULL,
+  metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  deleted_at TIMESTAMPTZ
+);
+```
 
-Session types:
+## application_results
 
-- color_harmony_undertone
-- lip_color
-- eyewear
-- clothing_color
-- eyeliner_shape
-- lip_shape
+```sql
+CREATE TABLE application_results (
+  id UUID PRIMARY KEY,
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  lesson_id UUID NOT NULL REFERENCES style_lessons(id),
+  before_image_id UUID REFERENCES media_assets(id),
+  after_image_id UUID REFERENCES media_assets(id),
+  user_notes TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
 
-### comparison_pairs
+## review_sessions
 
-- id UUID PK
-- session_id UUID FK comparison_sessions.id
-- pair_key TEXT NOT NULL
-- option_a_label TEXT NOT NULL
-- option_b_label TEXT NOT NULL
-- option_a_payload JSONB NOT NULL
-- option_b_payload JSONB NOT NULL
-- sort_order INT NOT NULL
+```sql
+CREATE TABLE review_sessions (
+  id UUID PRIMARY KEY,
+  application_result_id UUID NOT NULL REFERENCES application_results(id) ON DELETE CASCADE,
+  share_token TEXT UNIQUE NOT NULL,
+  prompt TEXT NOT NULL,
+  expires_at TIMESTAMPTZ NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
 
-Examples:
+## review_votes
 
-- gold_vs_silver
-- ivory_vs_pure_white
-- camel_vs_cool_grey
-- coral_vs_rose
-
-### reviews
-
-- id UUID PK
-- session_id UUID FK comparison_sessions.id
-- reviewer_type TEXT NOT NULL
-- reviewer_alias TEXT NULL
-- reviewer_token TEXT NULL
-- created_at TIMESTAMPTZ NOT NULL
-
-Reviewer types:
-
-- self
-- friend
-- ai
-
-### review_votes
-
-- id UUID PK
-- review_id UUID FK reviews.id
-- comparison_pair_id UUID FK comparison_pairs.id
-- selected_option TEXT NOT NULL
-- prompt_key TEXT NOT NULL
-- confidence INT NULL
-- created_at TIMESTAMPTZ NOT NULL
-
-Selected option:
-
-- A
-- B
-- TIE
-- UNSURE
-
-Prompt keys:
-
-- healthier
-- natural
-- brighter
-- harmonious
-- polished
-
-### friend_review_links
-
-- id UUID PK
-- session_id UUID FK comparison_sessions.id
-- token_hash TEXT NOT NULL
-- expires_at TIMESTAMPTZ NOT NULL
-- max_reviews INT NULL
-- created_at TIMESTAMPTZ NOT NULL
-- disabled_at TIMESTAMPTZ NULL
-
-### reports
-
-- id UUID PK
-- user_id UUID FK users.id
-- session_id UUID FK comparison_sessions.id
-- report_type TEXT NOT NULL
-- summary JSONB NOT NULL
-- generated_at TIMESTAMPTZ NOT NULL
-
-### products
-
-- id UUID PK
-- brand TEXT NOT NULL
-- name TEXT NOT NULL
-- category TEXT NOT NULL
-- shade_name TEXT NULL
-- color_hex TEXT NULL
-- undertone_tag TEXT NULL
-- brightness_tag TEXT NULL
-- saturation_tag TEXT NULL
-- metadata JSONB NOT NULL DEFAULT '{}'
-- created_at TIMESTAMPTZ NOT NULL
-
-### recommendation_events
-
-- id UUID PK
-- user_id UUID FK users.id
-- report_id UUID FK reports.id NULL
-- product_id UUID FK products.id NULL
-- recommendation_type TEXT NOT NULL
-- reason JSONB NOT NULL
-- created_at TIMESTAMPTZ NOT NULL
-
-## Indexes
-
-- users.email unique
-- image_assets.user_id
-- comparison_sessions.user_id
-- comparison_pairs.session_id
-- reviews.session_id
-- review_votes.review_id
-- friend_review_links.token_hash unique
-- reports.user_id
-- products.category
-- products.undertone_tag
+```sql
+CREATE TABLE review_votes (
+  id UUID PRIMARY KEY,
+  review_session_id UUID NOT NULL REFERENCES review_sessions(id) ON DELETE CASCADE,
+  reviewer_type TEXT NOT NULL,
+  selected_option TEXT,
+  impression_ratings JSONB NOT NULL DEFAULT '{}'::jsonb,
+  comment TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```

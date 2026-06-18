@@ -2,82 +2,38 @@
 
 ## Sensitive Data
 
-Face images are sensitive personal data.
+Face and eye photos are sensitive. Store only when needed and allow deletion.
 
-The system must minimize collection, retention, and exposure.
+## Default Privacy
 
-## Consent Requirements
-
-Before face upload, ask for explicit consent for:
-
-- face image upload
-- raw image storage
-- friend review sharing
-- anonymized analytics
-
-## Data Minimization
-
-Recommended defaults:
-
-- Store raw images only when needed.
-- Prefer derived thumbnails and overlay coordinates.
-- Delete expired public review assets.
-- Use signed URLs.
+- Review links should expire.
+- Images should not be public by default.
+- Users must control deletion.
 
 ## Friend Review Safety
 
-Friend review prompts must not ask:
+Friend review must evaluate looks for the same user, not compare different people.
 
-- Which version is prettier?
-- Which person looks better?
-- Who is more attractive?
+Disallow:
 
-Allowed prompts:
+- attractiveness ranking
+- body/face scoring
+- public leaderboards
+- friend-to-friend competition
 
-- Which option looks more harmonious?
-- Which option looks more natural?
-- Which option makes the face appear brighter?
-- Which option looks more polished?
+## Makeup Safety
 
-## Appearance Harm Avoidance
+Include safe-use reminders:
 
-Do not rank users by beauty.
+- Avoid applying eyeliner inside the eye.
+- Stop if irritation occurs.
+- Keep tools clean.
+- Patch test products when relevant.
 
-Do not generate body, age, race, ethnicity, or medical judgments.
+## Claims Safety
 
-Do not infer skin disease.
+Dear Style is not a medical or dermatological diagnostic tool.
 
-## Reporting Language
+## Color Claim Safety
 
-Use tendency-based language.
-
-Preferred:
-
-- Your results lean neutral-warm.
-- Gold and ivory were repeatedly selected.
-- The result is not final; retesting in different lighting can improve confidence.
-
-Avoid:
-
-- You are definitely warm tone.
-- You should never wear silver.
-- Your skin is bad with cool colors.
-
-## Deletion
-
-Users must be able to delete:
-
-- uploaded images
-- comparison sessions
-- reports
-- account data
-
-## Abuse Controls
-
-Public friend-review links require:
-
-- token hashing
-- expiry
-- rate limiting
-- max review count
-- reporting/disable option
+Digital undertone analysis should be low-confidence and exploratory unless controlled capture is implemented.

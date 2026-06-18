@@ -1,77 +1,58 @@
 # CLAUDE.md
 
-## Project Identity
+## Mission
 
-You are working on Dear Style, a Dear Daughter Beauty service for color harmony, undertone analysis, makeup shape discovery, fashion color guidance, and product recommendation.
+Build Dear Style v2 as a practice-first beauty learning platform. Do not treat the MVP as a color diagnosis app. The primary product value is teaching users how to draw makeup lines and understand how shape changes appearance.
 
-## Development Philosophy
+## Current Product Direction
 
-Build a reliable visual comparison platform first. Do not overbuild AI classification before the comparison and review loops work.
+The product has pivoted from:
 
-The MVP must support:
+```text
+Color Harmony / Undertone Test
+```
 
-- A/B comparison sessions
-- Color overlays
-- Friend review links
-- Result aggregation
-- Explainable reports
+to:
 
-## Critical Product Rule
+```text
+Makeup Drawing Coach + Appearance Design Learning Platform
+```
 
-The system should avoid deterministic identity claims such as:
+## Key Product Rules
 
-- "You are Warm Tone."
-- "You are Cool Tone."
-- "This color is objectively best for you."
+1. Do not make digital undertone diagnosis the default user journey.
+2. Do not overbuild virtual try-on in the MVP.
+3. Prioritize step-by-step drawing education.
+4. Prioritize screen tracing practice before real-world application.
+5. Treat eyeliner and lip-line as geometry/practice problems before AI rendering problems.
+6. Friend review should evaluate A/B results for the same user, not rank people against each other.
+7. Avoid attractiveness scoring.
+8. Use impression language: natural, sharp, soft, elegant, professional, friendly, lifted, bold.
+9. Color features must be labeled as exploratory and lower-confidence unless controlled capture conditions exist.
+10. Every implementation should support future expansion into Beauty Graph and product matching.
 
-Use tendency-based language:
+## MVP Modules
 
-- "Your repeated results lean warm-neutral."
-- "Gold was selected more often than Silver."
-- "Muted coral received stronger friend feedback than cool rose."
+- User accounts
+- Style lesson catalog
+- Eyeliner guide
+- Line tracing practice
+- Mirror mode guide
+- Result upload
+- Before/after comparison
+- Friend review
+- Feedback report
 
-## Safety Rule
+## Deferred Modules
 
-Never rank people by beauty, attractiveness, or physical worth.
+- Digital color draping
+- Gold/silver testing
+- AR eyeglass try-on
+- Clothing virtual try-on
+- Full AI makeup rendering
+- Product recommendation
 
-The system evaluates:
+## Development Style
 
-- color harmony
-- styling compatibility
-- perceived impression
-- preference patterns
+Use simple, testable modules. Prefer deterministic geometry and structured content over opaque AI inference in early phases.
 
-It does not evaluate:
-
-- beauty
-- attractiveness
-- race or ethnicity
-- medical skin condition
-
-## Engineering Constraints
-
-- Keep image processing modular.
-- Store original face images only when explicitly consented.
-- Prefer derived assets and masks over raw image retention.
-- Use signed URLs for image access.
-- Separate public friend-review access from authenticated user access.
-- Keep all AI outputs explainable and inspectable.
-
-## Naming
-
-Product: Dear Style
-Parent brand: Dear Daughter Beauty
-Primary feature name: Color Harmony Test (Undertone Analysis)
-
-## Implementation Order
-
-1. Backend schema and auth
-2. Image upload and storage
-3. A/B comparison model
-4. Web MVP
-5. Friend review flow
-6. Result report
-7. Mobile parity
-8. AI-assisted analysis
-9. Recommendations
-10. Beauty Graph

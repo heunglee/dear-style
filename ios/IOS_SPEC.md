@@ -1,59 +1,37 @@
-# iOS Specification
+# iOS Spec
 
 ## Stack
 
 - Swift
 - SwiftUI
-- URLSession or Alamofire
-- PhotosUI
-- AVFoundation if camera capture is needed
-
-## Permissions
-
-- Photo Library limited access
-- Camera access only when needed
-
-Use native iOS permission explanations.
+- AVFoundation
+- URLSession or Alamofire optional
+- CoreData optional for local drafts
 
 ## Screens
 
-- WelcomeView
-- ConsentView
-- UploadView
-- TestSelectionView
-- ComparisonView
-- FriendShareView
+- HomeView
+- LessonListView
+- LessonDetailView
+- TracePracticeView
+- MirrorModeView
+- UploadResultView
 - ReportView
-- PrivacySettingsView
 
-## Native Flows
+## Trace Practice
 
-### Photo Selection
+Use SwiftUI Canvas or custom UIViewRepresentable drawing view.
 
-Use PhotosPicker for user-selected images.
+Capture:
 
-### Camera
+- touch points
+- timestamps
+- normalized path
 
-Use camera capture only after explicit user action.
+## Mirror Mode
 
-### Upload
+Use AVFoundation front camera preview. Optional Apple Vision landmarks can be added later but are not required for MVP.
 
-- Request upload URL.
-- Upload directly to signed URL.
-- Confirm upload with backend.
+## Privacy
 
-### Share
-
-Use UIActivityViewController or ShareLink.
-
-## Data Layer
-
-Create API service layer with typed DTOs.
-
-## iOS Acceptance Criteria
-
-- User can complete Color Harmony Test.
-- User can generate and share friend-review link.
-- User can view report.
-- User can manage/delete image data.
-- UI follows shared design tokens.
+Explain camera and photo permissions clearly.

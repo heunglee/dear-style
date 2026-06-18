@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { AppHeader } from "@/components/app-header";
 import { QueryProvider } from "@/components/query-provider";
 import "./globals.css";
 
@@ -17,7 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <div className="app-shell">
+            <div className="page">
+              <AppHeader />
+              {children}
+            </div>
+          </div>
+        </QueryProvider>
       </body>
     </html>
   );

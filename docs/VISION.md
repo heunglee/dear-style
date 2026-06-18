@@ -1,47 +1,44 @@
-# Dear Style Vision
+# Vision
 
-## Product Name
+Dear Style is a Dear Daughter Beauty service that helps people learn how to design their appearance through practical makeup technique.
 
-Dear Style
+The first version of the concept focused on digital color harmony and undertone testing. That direction is now secondary because uncontrolled digital color analysis has serious practical limitations:
 
-## Parent Brand
+- lighting changes perceived skin tone
+- phone cameras apply automatic color correction
+- displays vary across devices
+- digital gold/silver or clothing overlays do not reproduce real reflection and material behavior
+- high-quality virtual try-on is costly and may distract from learning
 
-Dear Daughter Beauty
+The revised product vision is:
 
-## Category
+> Teach users how to create desired impressions using makeup shape, line placement, and repeatable practice.
 
-AI-assisted beauty, style, color, and appearance discovery platform.
+## Primary User Problem
 
-## Vision
+Many users know what makeup style they like but do not know how to execute it on their own face.
 
-Dear Style helps people understand how colors, makeup shapes, eyewear, and clothing choices influence their appearance and perceived impression.
+They ask:
 
-Many users do not understand undertone, color harmony, brightness, saturation, contrast, eyeliner shape, lip line, or styling coordination. This creates repeated trial and error in cosmetics and fashion purchases.
+- Where should the eyeliner start?
+- How far should the tail extend?
+- How much should the tail lift?
+- How thick should the line be?
+- Which style makes me look softer, sharper, more professional, or more elegant?
+- How do I practice before putting makeup on my face?
 
-Dear Style provides interactive visual comparisons and social feedback loops so users can learn what works for them.
+## Product Answer
 
-## Core Belief
+Dear Style provides:
 
-The product should not simply classify people.
+- visual drawing guides
+- trace practice mode
+- mirror-assisted instruction
+- before/after review
+- friend A/B review
+- impression education
+- progressive skill building
 
-The product should help people discover useful patterns through comparison.
+## Long-Term Vision
 
-## Product Promise
-
-Dear Style helps users answer:
-
-- Which colors look more harmonious on me?
-- Do I lean warm, cool, or neutral in repeated comparisons?
-- Which lip colors create the impression I want?
-- Which eyewear colors frame my face better?
-- Which clothing colors brighten or dull my appearance?
-- How do eyeliner and lip-line shapes change my mood or impression?
-- How do my own preferences compare with friend feedback?
-
-## MVP Positioning
-
-Color Harmony Test (Undertone Analysis) + A/B visual comparison + friend review.
-
-## Long-Term Positioning
-
-Beauty Graph-based style discovery and recommendation platform.
+Dear Style may later expand into color harmony, product matching, wardrobe coordination, and brand insights, but the foundation is a practical beauty learning platform.

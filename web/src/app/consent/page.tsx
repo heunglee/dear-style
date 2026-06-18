@@ -1,54 +1,38 @@
-import Link from "next/link";
-
 import { ConsentForm } from "@/components/consent-form";
 
 export default function ConsentPage() {
   return (
-    <main className="app-shell">
-      <div className="page">
-        <header className="topbar">
-          <Link className="brand" href="/">
-            <strong>Dear Style</strong>
-            <span>Dear Daughter Beauty</span>
-          </Link>
-          <nav className="nav-actions" aria-label="Account">
-            <Link className="button button-ghost" href="/login">
-              Log in
-            </Link>
-          </nav>
-        </header>
+    <main>
+      <section className="consent-page">
+        <div className="hero-copy">
+          <span className="eyebrow">Consent</span>
+          <h1>Stay in control.</h1>
+          <p className="lede">
+            Dear Style uses your photo only to create comparison sessions and style reports you
+            choose to run. Sharing stays off unless you create a friend review link.
+          </p>
+        </div>
 
-        <section className="consent-page">
-          <div className="hero-copy">
-            <span className="eyebrow">Consent</span>
-            <h1>Stay in control.</h1>
-            <p className="lede">
-              Dear Style uses your photo only to create comparison sessions and style reports you
-              choose to run. Sharing stays off unless you create a friend review link.
-            </p>
+        <div className="panel">
+          <div className="panel-body">
+            <ul className="consent-list" aria-label="Privacy summary">
+              <li>
+                <strong>Photo use</strong>
+                <p>Face photos support color and style comparison sessions.</p>
+              </li>
+              <li>
+                <strong>Sharing</strong>
+                <p>Friend review links are created only after you choose that flow.</p>
+              </li>
+              <li>
+                <strong>Deletion</strong>
+                <p>Uploaded images are designed to remain deletable from your account.</p>
+              </li>
+            </ul>
+            <ConsentForm />
           </div>
-
-          <div className="panel">
-            <div className="panel-body">
-              <ul className="consent-list" aria-label="Privacy summary">
-                <li>
-                  <strong>Photo use</strong>
-                  <p>Face photos support color and style comparison sessions.</p>
-                </li>
-                <li>
-                  <strong>Sharing</strong>
-                  <p>Friend review links are created only after you choose that flow.</p>
-                </li>
-                <li>
-                  <strong>Deletion</strong>
-                  <p>Uploaded images are designed to remain deletable from your account.</p>
-                </li>
-              </ul>
-              <ConsentForm />
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,98 +1,121 @@
 # Domain Model
 
-## Person
+## User
 
-Represents a registered user.
+A person using Dear Style.
 
-## Appearance Profile
+## Profile
 
-Derived profile from repeated comparison sessions.
+Stores optional user preferences and skill metadata.
 
 Attributes:
 
-- undertone tendency
-- brightness preference
-- saturation preference
-- contrast preference
-- lip color preferences
-- eyewear color preferences
-- clothing color preferences
-
-## Image Asset
-
-A stored or derived image object.
-
-Examples:
-
-- original face image
-- thumbnail
-- face mask
-- comparison render
-
-## Comparison Session
-
-A grouped A/B testing experience.
-
-Examples:
-
-- Color Harmony Test (Undertone Analysis)
-- Lip Color Test
-- Eyewear Test
-- Clothing Color Test
-- Eyeliner Shape Test
-
-## Comparison Pair
-
-One A/B comparison inside a session.
-
-Examples:
-
-- Gold vs Silver
-- Coral vs Rose
-- Gold Frame vs Silver Frame
-
-## Review
-
-A submitted evaluation of a comparison session.
-
-Reviewer types:
-
-- self
-- friend
-- AI
-
-## Vote
-
-A single selection for a comparison pair.
-
-## Report
-
-A generated explanation and summary.
-
-## Product
-
-A cosmetic, eyewear, or fashion item.
-
-## Style Element
-
-A visual styling element.
-
-Examples:
-
-- eyeliner shape
-- brow shape
-- lip line
-- hair color
-- frame color
+- skill_level
+- preferred_impressions
+- sensitive_skin_notes_optional
+- privacy_settings
 
 ## Impression
 
-A perceived style effect.
+A perceived style quality.
 
 Examples:
 
 - natural
-- friendly
-- elegant
+- soft
+- sharp
+- lifted
 - professional
+- elegant
 - bold
+- friendly
+
+## StyleLesson
+
+A reusable lesson for a makeup technique.
+
+Attributes:
+
+- category: eyeliner, lip_line, brow, color_exploration
+- name
+- target_impressions
+- difficulty
+- instructions
+- common_mistakes
+
+## DrawingTemplate
+
+A target shape used for trace practice.
+
+Attributes:
+
+- lesson_id
+- geometry_type
+- normalized_path
+- reference_points
+- scoring_rules
+
+## PracticeSession
+
+A user's learning session.
+
+Attributes:
+
+- user_id
+- lesson_id
+- status
+- started_at
+- completed_at
+
+## TraceAttempt
+
+A screen tracing attempt.
+
+Attributes:
+
+- practice_session_id
+- input_path
+- angle_score
+- length_score
+- smoothness_score
+- endpoint_score
+- total_score
+
+## ApplicationResult
+
+A real-world before/after result.
+
+Attributes:
+
+- user_id
+- lesson_id
+- before_image_id
+- after_image_id
+- notes
+
+## ReviewSession
+
+A review link for A/B evaluation.
+
+Attributes:
+
+- application_result_id
+- review_type
+- share_token
+- expires_at
+
+## ReviewVote
+
+A self, friend, or AI review result.
+
+Attributes:
+
+- review_session_id
+- reviewer_type
+- selected_option
+- impression_ratings
+- comment_optional
+
+## ColorExploration
+
+Deferred feature for preference-based color learning, not diagnosis.

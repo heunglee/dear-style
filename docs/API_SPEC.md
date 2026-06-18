@@ -1,165 +1,128 @@
-# API Specification
+# API Spec
 
-## Base URL
+Base path: `/api/v1`
 
-/api/v1
+## Lessons
 
-## Authentication
+### GET /lessons
 
-Use bearer tokens or secure cookie sessions.
-
-## Endpoints
-
-### Auth
-
-POST /auth/register
-
-Request:
-
-```json
-{
-  "email": "user@example.com",
-  "password": "string",
-  "display_name": "Jane"
-}
-```
-
-POST /auth/login
-
-GET /auth/me
-
-POST /auth/logout
-
-### Consent
-
-GET /consents
-
-POST /consents
-
-```json
-{
-  "consent_type": "face_image_upload",
-  "granted": true,
-  "version": "2026-01"
-}
-```
-
-### Images
-
-POST /images/upload-url
-
-```json
-{
-  "mime_type": "image/jpeg",
-  "asset_type": "original_face"
-}
-```
-
-Response:
-
-```json
-{
-  "image_asset_id": "uuid",
-  "upload_url": "signed-url",
-  "storage_key": "string"
-}
-```
-
-POST /images/{image_asset_id}/confirm
-
-DELETE /images/{image_asset_id}
-
-### Comparison Sessions
-
-POST /comparison-sessions
-
-```json
-{
-  "image_asset_id": "uuid",
-  "session_type": "color_harmony_undertone",
-  "environment_label": "natural_light"
-}
-```
-
-GET /comparison-sessions/{session_id}
-
-POST /comparison-sessions/{session_id}/complete
-
-### Reviews
-
-POST /comparison-sessions/{session_id}/self-review
-
-```json
-{
-  "votes": [
-    {
-      "comparison_pair_id": "uuid",
-      "selected_option": "A",
-      "prompt_key": "harmonious",
-      "confidence": 4
-    }
-  ]
-}
-```
-
-### Friend Review Links
-
-POST /comparison-sessions/{session_id}/friend-links
-
-```json
-{
-  "expires_in_hours": 72,
-  "max_reviews": 20
-}
-```
-
-GET /friend-review/{token}
-
-POST /friend-review/{token}/submit
-
-```json
-{
-  "reviewer_alias": "Friend",
-  "votes": [
-    {
-      "comparison_pair_id": "uuid",
-      "selected_option": "B",
-      "prompt_key": "brighter"
-    }
-  ]
-}
-```
-
-### Reports
-
-POST /comparison-sessions/{session_id}/report
-
-GET /reports/{report_id}
-
-GET /me/reports
-
-### Products
-
-GET /products
-
-Query parameters:
+Query:
 
 - category
-- undertone_tag
-- brightness_tag
-- saturation_tag
+- impression
+- difficulty
 
-### Recommendations
+Returns active style lessons.
 
-GET /reports/{report_id}/recommendations
+### GET /lessons/{lesson_id}
 
-## Error Format
+Returns lesson detail, instructions, templates, and common mistakes.
+
+## Practice
+
+### POST /practice-sessions
+
+Body:
 
 ```json
 {
-  "error": {
-    "code": "CONSENT_REQUIRED",
-    "message": "Face image upload consent is required."
-  }
+  "lesson_id": "uuid"
 }
 ```
+
+Creates a session.
+
+### POST /practice-sessions/{session_id}/trace-attempts
+
+Body:
+
+```json
+{
+  "template_id": "uuid",
+  "input_path": [{"x": 0.1, "y": 0.2, "t": 1000}]
+}
+```
+
+Returns trace scoring.
+
+### GET /practice-sessions/{session_id}
+
+Returns session and attempts.
+
+## Media
+
+### POST /media/upload-url
+
+Creates signed upload URL.
+
+Body:
+
+```json
+{
+  "media_type": "image/jpeg",
+  "purpose": "before_photo"
+}
+```
+
+## Application Results
+
+### POST /application-results
+
+Body:
+
+```json
+{
+  "lesson_id": "uuid",
+  "before_image_id": "uuid",
+  "after_image_id": "uuid",
+  "user_notes": "optional"
+}
+```
+
+### GET /application-results/{id}
+
+Returns result detail.
+
+## Reviews
+
+### POST /review-sessions
+
+Body:
+
+```json
+{
+  "application_result_id": "uuid",
+  "prompt": "Which look feels more professional?"
+}
+```
+
+Returns share URL.
+
+### GET /review-sessions/{share_token}
+
+Public endpoint for invited reviewers.
+
+### POST /review-sessions/{share_token}/votes
+
+Body:
+
+```json
+{
+  "selected_option": "after",
+  "impression_ratings": {
+    "professional": 4,
+    "natural": 3
+  },
+  "comment": "Looks cleaner"
+}
+```
+
+## Reports
+
+### GET /application-results/{id}/report
+
+Returns self/friend/AI summary.
+
+## Color Exploration
+
+All endpoints are deferred. Do not implement in MVP unless explicitly assigned.

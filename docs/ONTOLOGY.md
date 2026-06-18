@@ -1,115 +1,55 @@
-# Dear Style Ontology
+# Appearance Design Ontology
 
 ## Purpose
 
-The ontology defines stable concepts for future Beauty Graph development.
+Model relationships between facial features, drawing techniques, user goals, impressions, practice behavior, and products.
 
-## Core Classes
+## Node Types
 
-### Person
+- Person
+- FacialFeature
+- EyeShape
+- FaceShape
+- MakeupLine
+- DrawingTechnique
+- PracticeTemplate
+- Impression
+- Lesson
+- Product
+- Review
+- EventContext
 
-A user or anonymous reviewer subject.
+## Relationship Types
 
-### Color
+Person PRACTICES DrawingTechnique
 
-A color or color family.
+DrawingTechnique USES MakeupLine
 
-Properties:
+MakeupLine CREATES Impression
 
-- hex
-- hue_family
-- warmth
-- brightness
-- saturation
-- opacity
+EyeShape MODIFIES DrawingTechnique
 
-### UndertoneTendency
+FaceShape MODIFIES DrawingTechnique
 
-Values:
+EventContext PREFERS Impression
 
-- warm
-- cool
-- neutral
-- neutral_warm
-- neutral_cool
-- inconclusive
+Product SUPPORTS DrawingTechnique
 
-### StyleElement
+Review EVALUATES ApplicationResult
 
-Examples:
+Person PREFERS Impression
 
-- eyeliner
-- brow
-- lip_line
-- eyewear_frame
-- clothing_top
+## Example
 
-### Product
+```text
+Person
+→ wants → Professional Impression
+→ learns → Natural Tightline
+→ practices → Thin Lashline Template
+→ applies → Before/After Result
+→ receives → Friend Review
+```
 
-Examples:
+## Color Ontology Position
 
-- lipstick
-- foundation
-- eyeliner
-- blush
-- eyewear
-
-### Impression
-
-Examples:
-
-- natural
-- friendly
-- elegant
-- polished
-- sophisticated
-- professional
-- bold
-
-### EventContext
-
-Examples:
-
-- interview
-- wedding_guest
-- daily
-- date
-- dinner
-
-## Relationships
-
-Person PREFERS Color
-
-Person AVOIDS Color
-
-Person PREFERS StyleElement
-
-Color SUPPORTS UndertoneTendency
-
-Color CREATES Impression
-
-StyleElement CREATES Impression
-
-Product CONTAINS Color
-
-Product SUPPORTS StyleElement
-
-EventContext REQUIRES Impression
-
-Impression ASSOCIATED_WITH Color
-
-Impression ASSOCIATED_WITH StyleElement
-
-## Example Graph
-
-Interview → REQUIRES → Professional
-Professional → ASSOCIATED_WITH → Muted Rose
-Professional → ASSOCIATED_WITH → Soft Brown Eyeliner
-User → PREFERS → Muted Rose
-Product → CONTAINS → Muted Rose
-
-## Implementation Note
-
-Do not introduce graph database infrastructure during MVP unless needed.
-
-Start with relational tables and JSONB. Add graph storage later if query complexity justifies it.
+Color nodes may exist, but undertone should not be treated as a definitive inferred identity from uncontrolled photos. Use color features for preference and education first.

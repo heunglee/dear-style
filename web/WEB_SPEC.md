@@ -1,78 +1,52 @@
-# Web App Specification
+# Web Spec
 
 ## Stack
 
 - Next.js
 - React
 - TypeScript
-- Tailwind CSS or CSS Modules
-- TanStack Query for API data
-- Zod for client validation
+- Canvas API
+- Tailwind or CSS modules
 
 ## Routes
 
-- `/` welcome
-- `/signup`
-- `/login`
-- `/consent`
-- `/upload`
-- `/tests`
-- `/sessions/[sessionId]`
-- `/sessions/[sessionId]/review`
-- `/sessions/[sessionId]/share`
-- `/reports/[reportId]`
-- `/friend-review/[token]`
-- `/settings/privacy`
+```text
+/
+/learn
+/learn/[lessonSlug]
+/practice/[lessonId]
+/apply/[lessonId]
+/results/[resultId]
+/review/[shareToken]
+/profile
+```
 
 ## Key Components
 
-### ComparisonView
+- LessonCard
+- ImpressionSelector
+- StepGuide
+- TraceCanvas
+- PracticeScoreCard
+- MirrorChecklist
+- BeforeAfterUploader
+- ReviewPrompt
+- ReviewResults
 
-Props:
+## TraceCanvas Requirements
 
-- pairId
-- optionA
-- optionB
-- promptKey
-- onVote
+- render target path
+- capture pointer events
+- support mouse, touch, stylus
+- resample points before API submission
+- display scoring feedback
 
-### TestSelector
+## Friend Review Page
 
-Lists available test types.
+Must be fast, mobile-first, and not require account login.
 
-### UploadFaceImage
+## Accessibility
 
-Handles upload, preview, and confirmation.
-
-### FriendReviewPage
-
-Public page with minimal branding and safe prompts.
-
-### ReportSummary
-
-Renders tendency, confidence, self/friend comparison, and evidence.
-
-## State Management
-
-Use server state via TanStack Query.
-
-Local state only for:
-
-- unsaved votes
-- upload progress
-- UI stepper state
-
-## Rendering A/B Options
-
-MVP may render overlays client-side using CSS/SVG/canvas.
-
-If rendering quality becomes inconsistent, move rendering to backend image jobs.
-
-## Web MVP Acceptance Criteria
-
-- User can complete Color Harmony Test.
-- User can submit self votes.
-- User can generate friend review link.
-- Friend can submit votes without account.
-- User can view aggregated report.
-- User can delete uploaded image.
+- keyboard navigable lesson pages
+- accessible labels
+- high contrast line practice mode

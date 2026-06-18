@@ -87,3 +87,5 @@ Thumbs.db
 # Codex / Claude local state
 .codex/
 .agents/
+dear-style-v2*
+dear-style-git-pat.txt

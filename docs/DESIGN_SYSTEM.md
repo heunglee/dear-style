@@ -1,90 +1,51 @@
 # Design System
 
-## Brand Direction
+## Brand Tone
 
-Dear Style belongs to Dear Daughter Beauty.
+Dear Style should feel:
 
-The visual style should be soft, trustworthy, clean, and modern.
+- gentle
+- precise
+- educational
+- non-judgmental
+- polished
 
-## Suggested Color Tokens
+## Copy Rules
 
-### Core
+Use:
 
-- `color.brand.cream`: #FFF8F1
-- `color.brand.blush`: #F6D5D8
-- `color.brand.rose`: #C96F7C
-- `color.brand.cocoa`: #5B3F3A
-- `color.brand.charcoal`: #2E2A2A
+- "This creates a softer impression."
+- "Try a shorter tail for a more natural look."
+- "Your line is close. Practice smoother endings."
 
-### UI
+Avoid:
 
-- `color.background.primary`: #FFF8F1
-- `color.background.surface`: #FFFFFF
-- `color.text.primary`: #2E2A2A
-- `color.text.secondary`: #6F5F5B
-- `color.action.primary`: #C96F7C
-- `color.action.secondary`: #F6D5D8
-- `color.border.subtle`: #E9DCD7
+- "This makes you prettier."
+- "Your face shape is bad for this."
+- "You are definitely warm tone."
 
-### Semantic
+## Visual Style
 
-- `color.success`: #4F8A67
-- `color.warning`: #B9822B
-- `color.error`: #B94A48
-- `color.info`: #5A7C9B
+- clean white or warm off-white backgrounds
+- soft neutrals
+- minimal black for eyeliner education
+- gentle accent color from Dear Daughter Beauty palette
 
-## Typography
+## Component Tokens
 
-Use readable sans-serif typography.
+Suggested token names:
 
-Recommended web stack:
+- color.bg.base
+- color.bg.soft
+- color.text.primary
+- color.text.secondary
+- color.line.target
+- color.line.user
+- color.feedback.success
+- color.feedback.warning
+- radius.card
+- spacing.screen
 
-- Inter
-- system-ui
-- -apple-system
-- BlinkMacSystemFont
+## Practice Canvas
 
-## Components
-
-### Comparison Card
-
-Contains:
-
-- rendered image
-- option label
-- short descriptor
-
-### Test Card
-
-Contains:
-
-- test name
-- short explanation
-- estimated time
-
-### Report Block
-
-Contains:
-
-- heading
-- score or tendency
-- explanation
-- evidence list
-
-### Education Tip
-
-Small inline explanation cards for terms such as undertone, saturation, and contrast.
-
-## Motion
-
-Use gentle transitions.
-
-Avoid aggressive gamification.
-
-## Iconography
-
-Use line icons and simple symbolic labels.
-
-## Product Tone
-
-The UI should feel like a friendly beauty guide, not a clinical evaluator.
+Target line should be visually clear and high contrast. User line should be visually distinct. Provide haptic feedback on mobile if available.

@@ -1,148 +1,115 @@
-# UI/UX Specification
+# UI/UX Spec
 
-## Product Experience
+## Product UX Thesis
 
-Dear Style should feel warm, clear, educational, and non-judgmental.
+Dear Style should feel like a patient beauty coach, not a beauty judge.
 
-The app should make users feel:
+Core flow:
 
-- guided
-- curious
-- safe
-- visually informed
-- in control
+```text
+Learn → Trace → Apply → Review → Improve
+```
 
-## Primary User Flow
+## Main Navigation
 
-1. Welcome
-2. Consent
-3. Upload or capture face photo
-4. Choose test type
-5. A/B comparison
-6. Self review
-7. Optional friend review
-8. Report
-9. Suggested next test or product recommendation
+- Home
+- Learn
+- Practice
+- Review
+- Profile
 
-## Screen List
+## Home Screen
 
-### Welcome Screen
+Purpose:
 
-Purpose: introduce Dear Style.
+- introduce current goal
+- continue latest practice
+- show recommended lessons
 
 Primary CTA:
 
-- Start Color Harmony Test
+- Start Eyeliner Practice
 
-Secondary CTA:
+## Impression Goal Screen
 
-- Learn about undertone
+User selects desired impression:
 
-### Consent Screen
+- Natural
+- Soft
+- Lifted
+- Sharp
+- Professional
+- Elegant
+- Bold
 
-Explain:
-
-- why face photo is needed
-- how data is used
-- sharing behavior
-- deletion control
-
-### Capture / Upload Screen
-
-Guidance:
-
-- face forward
-- natural lighting recommended
-- avoid heavy filters
-- retest in different environments for better confidence
-
-### Test Selection Screen
-
-MVP cards:
-
-- Color Harmony Test (Undertone Analysis)
-- Lip Color Test
-- Eyewear Test
-- Clothing Color Test
-
-Future cards:
-
-- Eyeliner Shape Test
-- Lip Line Test
-- Brow Shape Test
-
-### A/B Comparison Screen
-
-Layout:
-
-- side-by-side A and B images
-- short question
-- option buttons
-- tie / unsure option
-- confidence slider optional
-
-Allowed question examples:
-
-- Which looks more harmonious?
-- Which looks more natural?
-- Which makes the face look brighter?
-- Which looks more polished?
-
-### Friend Review Share Screen
-
-Options:
-
-- copy link
-- share via native share sheet
-- set expiry
-- see review count
-
-### Friend Review Screen
-
-No login required.
-
-Reviewer sees:
-
-- user-provided display name or anonymous label
-- A/B comparison
-- safe prompt
-- submit button
-
-### Report Screen
+## Lesson Detail Screen
 
 Sections:
 
-- Summary
-- Self preference
-- Friend preference
-- Consistency
-- Color harmony explanation
-- Undertone tendency
-- Recommended next steps
+- What this style does
+- Best for
+- Step-by-step guide
+- Common mistakes
+- Practice template
+- Apply in mirror
 
-## UX Language
+## Trace Practice Screen
 
-Use:
+Requirements:
 
-- leans
-- tendency
-- repeated result
-- selected more often
-- may work well
+- large target line
+- finger/stylus tracing canvas
+- reset button
+- attempt counter
+- score after attempt
+- simple feedback
 
-Avoid:
+Do not overcomplicate with face photos in Phase 2.
 
-- perfect
-- flawed
-- prettier
-- ugly
-- must
-- never
+## Mirror Mode Screen
 
-## Accessibility
+Purpose:
 
-- Support large text.
-- Maintain contrast ratios.
-- Do not rely on color alone; label A/B options.
-- Provide alt text for educational diagrams.
-- Use touch targets appropriate for mobile.
+- let front camera act as a mirror
+- show textual checkpoints
+- optionally show reference dots or a non-precision guide
+
+Warning text:
+
+"Use this as a guide, not a fixed overlay. Keep your face steady and follow the step sequence."
+
+## Application Upload Screen
+
+Allows:
+
+- before photo
+- after photo
+- notes
+- create review link
+
+## Friend Review Screen
+
+Public mobile-friendly screen.
+
+Shows:
+
+- A/B images
+- prompt
+- impression rating buttons
+- optional comment
+
+Never asks friends to rate attractiveness.
+
+## Report Screen
+
+Shows:
+
+- practice scores
+- before/after summary
+- self preference
+- friend review distribution
+- next practice recommendation
+
+## Color Exploration UX
+
+Deferred. Must show limitation notice if enabled.

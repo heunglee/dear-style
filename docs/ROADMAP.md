@@ -2,71 +2,111 @@
 
 ## Phase 1 — Foundation
 
-Goal: Build a stable comparison platform.
+Goal: build the platform foundation.
 
-Deliverables:
+Features:
 
-- Authentication
-- Consent flow
-- Image upload
-- A/B comparison model
-- Basic overlay rendering
-- Self review
-- Friend review
-- Result report
+- accounts
+- style lesson catalog
+- practice session model
+- upload system
+- review system foundation
 
-## Phase 2 — Education
+## Phase 2 — Eyeliner Drawing Coach MVP
 
-Goal: Teach users why results happen.
+Goal: make the first high-value user experience.
 
-Deliverables:
+Features:
 
-- Undertone education
-- Color harmony education
-- Brightness, saturation, and contrast explanations
-- Result-specific explanation fragments
+- eyeliner style catalog
+- impression-based recommendation
+- step-by-step guides
+- trace practice mode
+- practice scoring
 
-## Phase 3 — Style Discovery
+## Phase 3 — Mirror-Assisted Application
 
-Goal: Expand from color into makeup shape and visual impression.
+Goal: bridge practice and real-world makeup.
 
-Deliverables:
+Features:
 
-- Eyeliner style comparison
-- Lip line comparison
-- Brow shape comparison
-- Impression descriptors
+- front-camera mirror mode
+- reference points
+- non-precision overlay warnings
+- application checklist
+- before/after capture
 
-## Phase 4 — Recommendation
+## Phase 4 — Review Loop
 
-Goal: Convert user understanding into practical choices.
+Goal: help users learn from results.
 
-Deliverables:
+Features:
 
-- Lip recommendations
-- Eyeliner recommendations
-- Foundation undertone guidance
-- Clothing color recommendations
-- Eyewear color recommendations
+- before/after comparison
+- self review
+- friend A/B review
+- AI-assisted feedback summary
 
-## Phase 5 — Beauty Graph
+## Phase 5 — Lip-Line Guide
 
-Goal: Build a personalized style knowledge graph.
+Goal: expand from eye line to lip shape.
 
-Deliverables:
+Features:
 
-- Person-color-style-product graph
-- Preference history
-- Similarity-based recommendations
-- Contextual styling queries
+- lip-line style catalog
+- trace practice templates
+- application guides
+- before/after review
 
-## Phase 6 — Brand Intelligence
+## Phase 6 — Face/Eye Shape Personalization
 
-Goal: Support product development with anonymized insights.
+Goal: make recommendations more personal.
 
-Deliverables:
+Features:
 
-- Shade gap discovery
-- Consumer preference clusters
-- Trend dashboards
-- Product development reports
+- optional eye-shape assessment
+- optional face-shape assessment
+- recommendation rules
+- user correction UI
+
+## Phase 7 — Appearance Graph
+
+Goal: model relationships among person, features, lines, styles, and impressions.
+
+Features:
+
+- graph schema
+- preference graph
+- practice graph
+- impression graph
+
+## Phase 8 — Color Exploration
+
+Goal: add cautious color education.
+
+Features:
+
+- color preference quizzes
+- controlled photo capture guidance
+- low-confidence color harmony experiments
+- no definitive undertone diagnosis
+
+## Phase 9 — Product Matching
+
+Goal: connect learned styles to products.
+
+Features:
+
+- eyeliner product matching
+- lip liner matching
+- Dear Daughter Beauty product matching when relevant
+
+## Phase 10 — Brand Insights
+
+Goal: aggregate anonymized learning and preference data for product development.
+
+Features:
+
+- style demand clusters
+- product gap discovery
+- impression trend reporting

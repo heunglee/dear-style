@@ -1,99 +1,65 @@
-# AI Pipeline
+# AI and Scoring Pipeline
 
 ## MVP Principle
 
-The MVP does not require full AI-driven face-tone classification.
+Use deterministic scoring before AI. The first product value comes from teaching and practice, not from complex AI inference.
 
-The first useful intelligence comes from structured A/B comparison results.
+## Trace Scoring
 
-## Data Inputs
+Input:
 
-- self votes
-- friend votes
-- comparison pair metadata
-- optional AI visual observations
-- lighting/environment labels
-- repeat-session consistency
+- target normalized path
+- user input path
 
-## MVP Scoring
+Scores:
 
-### Pair Outcome
+- angle match
+- length match
+- endpoint accuracy
+- smoothness
+- consistency across attempts
 
-For each comparison pair:
+Feedback examples:
 
-- option A vote count
-- option B vote count
-- tie/unsure count
-- self vs friend difference
-- confidence average
+- Tail angle is slightly too low.
+- Line is close in length but uneven near the end.
+- Endpoint is accurate; practice smoother pressure.
 
-### Tendency Mapping
+## Recommended Algorithm
 
-Example:
+1. Resample target and input paths to fixed number of points.
+2. Normalize scale and coordinate space.
+3. Calculate path distance using mean point distance.
+4. Calculate angle difference between main stroke vectors.
+5. Calculate length ratio.
+6. Calculate endpoint distance.
+7. Calculate smoothness using curvature variance.
+8. Generate feedback from thresholds.
 
-- Gold > Silver contributes warm tendency.
-- Ivory > Pure White contributes warm tendency.
-- Camel > Cool Grey contributes warm tendency.
-- Silver > Gold contributes cool tendency.
-- Pure White > Ivory contributes cool tendency.
-- Cool Grey > Camel contributes cool tendency.
+## Optional Vision Pipeline
 
-### Confidence
+Deferred.
 
-Confidence should be based on:
+Potential steps:
 
-- number of completed comparisons
-- vote consistency
-- repeated test consistency across environments
-- friend review count
-- tie/unsure rate
+1. Detect face landmarks.
+2. Detect eye landmarks.
+3. Estimate eye shape category.
+4. Suggest template scaling and placement.
 
-## Example Output
+Use only as guidance. Avoid medical or attractiveness claims.
 
-```json
-{
-  "undertone_tendency": "neutral_warm",
-  "confidence": 0.72,
-  "evidence": [
-    "Gold selected over Silver in 2 of 3 sessions",
-    "Ivory selected over Pure White by 70% of friend reviewers"
-  ]
-}
-```
+## LLM Use
 
-## Optional Image AI
+LLMs may be used for:
 
-Image AI can assist with:
+- generating educational explanations
+- summarizing review comments
+- converting scores into friendly feedback
+- answering style questions
 
-- face detection
-- face crop validation
-- overlay placement
-- approximate lighting quality detection
-- obvious filter warning
+LLMs must not be used to produce unsupported certainty about undertone or attractiveness.
 
-Image AI should not be the primary source of undertone truth in MVP.
+## Color Analysis Position
 
-## Future AI Capabilities
-
-### Makeup Shape Recognition
-
-Estimate facial landmarks to place eyeliner, brows, and lip-line overlays.
-
-### Impression Engine
-
-Map style combinations to impression labels.
-
-Example:
-
-- soft brown eyeliner + muted rose lip → natural, approachable
-- black cat eye + sharp lip line → bold, polished
-
-### Recommendation Engine
-
-Use reports and product metadata to suggest products.
-
-### Beauty Graph Reasoning
-
-Traverse relationships:
-
-User → preferred colors → impressions → products → routines
+Color/undertone analysis is deferred and low-confidence unless capture is controlled. If implemented later, it should be framed as preference exploration, not diagnosis.

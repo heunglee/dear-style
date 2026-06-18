@@ -1,41 +1,22 @@
-# Recommended Project Structure
+# Project Structure
 
 ```text
 dear-style/
   backend/
     app/
-      main.py
-      core/
-      auth/
-      users/
-      consents/
-      images/
-      comparisons/
-      reviews/
-      reports/
-      products/
-      recommendations/
-      ai/
     tests/
     alembic/
-    pyproject.toml
-    Dockerfile
   web/
     app/
     components/
     lib/
-    styles/
-    public/
-    package.json
   android/
     app/
-      src/main/
-    build.gradle
   ios/
     DearStyle/
-    DearStyleTests/
   docs/
   tasks/
+  shared/
   docker-compose.yml
   README.md
   CLAUDE.md
@@ -44,11 +25,10 @@ dear-style/
 
 ## Development Order
 
-1. Backend schema and API contracts
-2. Web MVP
-3. Friend review flow
-4. Report generation
-5. Android parity
-6. iOS parity
-7. AI-assisted enhancements
-8. Product matching
+1. Backend + DB
+2. Web lesson and practice flow
+3. Android practice flow
+4. iOS practice flow
+5. Review system
+6. Mirror mode
+7. Optional personalization
