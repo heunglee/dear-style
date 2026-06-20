@@ -15,7 +15,11 @@ dear-style/
   ios/
     DearStyle/
   docs/
-  tasks/
+    product/
+    architecture/
+    ux/
+    ai/
+    tasks/
   shared/
   docker-compose.yml
   README.md
@@ -25,10 +29,10 @@ dear-style/
 
 ## Development Order
 
-1. Backend + DB
-2. Web lesson and practice flow
-3. Android practice flow
-4. iOS practice flow
-5. Review system
-6. Mirror mode
-7. Optional personalization
+1. Documentation alignment for the pivot
+2. Backend data model and API contracts
+3. Face image upload and quality validation
+4. Landmark detection and facial geometry extraction
+5. Makeup coaching guides for lip line, eyebrows, and blush
+6. Before/after feedback loop
+7. Cross-platform implementation on web, Android, and iOS

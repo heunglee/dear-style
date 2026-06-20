@@ -2,7 +2,7 @@
 
 ## Decision
 
-Dear Style MVP will pivot from digital color/undertone analysis to makeup drawing education and practice.
+Dear Style MVP will pivot from digital color/undertone analysis to AI-assisted makeup coaching based on facial landmarks and geometry.
 
 ## Previous Direction
 
@@ -11,6 +11,7 @@ Dear Style MVP will pivot from digital color/undertone analysis to makeup drawin
 - Gold vs Silver comparisons
 - Clothing/eyewear color overlays
 - Lip color A/B analysis
+- Product-first recommendations
 
 ## Problems Identified
 
@@ -27,21 +28,21 @@ Gold, silver, clothing, and eyewear tests rely heavily on real material reflecti
 
 ## New Direction
 
-- Eyeliner drawing guide
-- Lip-line drawing guide
-- Screen tracing practice
-- Mirror-assisted real application
-- Before/after review
-- Friend A/B review
-- Impression prediction
+- Face landmark extraction
+- Facial geometry analysis
+- Lip line coaching
+- Eyebrow coaching
+- Blush placement coaching
+- Before/after makeup feedback
+- Confidence and image quality QA
 
 ## Rationale
 
-Makeup line design is primarily a geometry and practice problem. It is easier to teach, easier to evaluate, and more directly actionable for users.
+Makeup application is strongly affected by placement, proportion, and feature geometry. These are easier to explain from a selfie than uncontrolled color diagnosis, and they produce more actionable guidance for users.
 
 ## Product Definition After Pivot
 
-Dear Style is a beauty learning platform that helps users practice makeup techniques and understand how line shape changes appearance.
+Dear Style is an AI makeup coaching platform that helps users decide where and how to apply makeup on their own face.
 
 ## Status of Color Features
 

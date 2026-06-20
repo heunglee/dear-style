@@ -6,26 +6,27 @@ Face and eye photos are sensitive. Store only when needed and allow deletion.
 
 ## Default Privacy
 
-- Review links should expire.
 - Images should not be public by default.
 - Users must control deletion.
+- Face analysis results should be treated as sensitive derived data.
+- Stored images should have clear retention rules.
 
-## Friend Review Safety
+## Feedback Safety
 
-Friend review must evaluate looks for the same user, not compare different people.
+Feedback must evaluate application placement and confidence, not the user's inherent appearance.
 
 Disallow:
 
 - attractiveness ranking
 - body/face scoring
 - public leaderboards
-- friend-to-friend competition
+- comparison between different people
 
 ## Makeup Safety
 
 Include safe-use reminders:
 
-- Avoid applying eyeliner inside the eye.
+- Avoid applying products inside the eye.
 - Stop if irritation occurs.
 - Keep tools clean.
 - Patch test products when relevant.

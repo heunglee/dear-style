@@ -2,7 +2,10 @@
 
 ## Stack
 
-- Swift
+- Xcode 26.4.1 or newer stable
+- Swift 6.3.x from stable Xcode
+- iOS 26 SDK from stable Xcode
+- Minimum iOS 17+ initially
 - SwiftUI
 - AVFoundation
 - URLSession or Alamofire optional
@@ -11,22 +14,24 @@
 ## Screens
 
 - HomeView
-- LessonListView
-- LessonDetailView
-- TracePracticeView
+- CoachingTargetView
+- SelfieCaptureView
+- CoachingResultView
 - MirrorModeView
-- UploadResultView
+- FeedbackUploadView
 - ReportView
 
-## Trace Practice
+## Coaching Overlay
 
 Use SwiftUI Canvas or custom UIViewRepresentable drawing view.
 
-Capture:
+Render:
 
-- touch points
-- timestamps
-- normalized path
+- points
+- lines
+- curves
+- regions
+- confidence warnings
 
 ## Mirror Mode
 

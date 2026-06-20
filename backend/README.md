@@ -4,7 +4,7 @@ FastAPI backend for the Dear Style MVP.
 
 ## Local Setup
 
-This backend targets Python 3.14+.
+This backend targets Python 3.14.6 or the latest Python 3.14 bugfix release.
 
 ```bash
 cd backend
@@ -50,3 +50,7 @@ pytest
 - `GET /api/v1/consents`
 - `POST /api/v1/consents`
 - `GET /health`
+
+## Version Baseline
+
+See [../docs/architecture/technology_stack.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/architecture/technology_stack.md) for the current stable backend versions.

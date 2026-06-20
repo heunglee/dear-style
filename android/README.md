@@ -5,7 +5,7 @@ Native Android foundation for Dear Style.
 ## Local Setup
 
 This project uses Kotlin and Jetpack Compose.
-Use JDK 17+ with the Android Gradle Plugin version configured in this project.
+Use JDK 17 with the Android Gradle Plugin version defined in [../docs/architecture/technology_stack.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/architecture/technology_stack.md).
 
 ### Install Requirements
 
@@ -48,7 +48,7 @@ If your shell still resets to Java 11, look for an older `JAVA_HOME` export in `
 
 Install Android Studio, then open the `android/` directory and install:
 
-- Android SDK Platform 35
+- Android SDK Platform 36
 - Android SDK Build-Tools
 - Android SDK Platform-Tools
 
@@ -75,7 +75,7 @@ For team and CI consistency, add a Gradle wrapper after Gradle is installed:
 
 ```bash
 cd android
-gradle wrapper --gradle-version 8.10.2
+gradle wrapper --gradle-version 9.4.1
 ./gradlew :app:assembleDebug
 ```
 

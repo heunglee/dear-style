@@ -1,81 +1,58 @@
-# AGENTS.md
+# Dear Style Agent Architecture
 
-## Agent Principles
+## Agent Types
 
-Agents in Dear Style should support education, practice, and review. They should not overclaim diagnostic certainty.
-
-## Drawing Coach Agent
+### Face Analysis Agent
 
 Responsibilities:
 
-- Recommend eyeliner and lip-line practice modules based on user goals.
-- Explain line start point, endpoint, angle, length, thickness, and sequence.
-- Generate step-by-step instructions.
-- Provide feedback on user practice data when available.
+- Face landmark extraction
+- Face shape classification
+- Symmetry measurements
+- Feature localization
 
-Inputs:
+Output:
 
-- Desired impression
-- Eye shape metadata when available
-- Face shape metadata when available
-- User skill level
-- Practice history
+Structured facial geometry.
 
-Outputs:
+---
 
-- Recommended drawing style
-- Practice template
-- Instructions
-- Improvement tips
-
-## Trace Evaluation Agent
+### Makeup Coach Agent
 
 Responsibilities:
 
-- Evaluate screen tracing results.
-- Score angle match, length match, smoothness, symmetry, endpoint accuracy, and repeat consistency.
+- Generate application guides
+- Determine recommended placement
+- Produce correction feedback
 
-No camera analysis is required for this agent.
+Output:
 
-## Mirror Guidance Agent
+Actionable instructions.
 
-Responsibilities:
+---
 
-- Provide mirror-mode instructions.
-- Warn users that live AR overlays may shift if the face moves.
-- Prefer reference points and step-by-step guidance over precision overlays.
-
-## Result Review Agent
+### Recommendation Agent
 
 Responsibilities:
 
-- Compare before/after uploads.
-- Summarize self review, friend review, and optional AI review.
-- Avoid attractiveness scoring.
+- Style recommendation
+- Occasion recommendation
+- Product category recommendation
 
-## Friend Review Agent
+Output:
 
-Responsibilities:
+Suggested makeup strategy.
 
-- Create shareable review links.
-- Collect reviewer ratings for one user's A/B choices.
-- Ensure reviewers compare looks, not people.
+---
 
-## Appearance Education Agent
+### QA Agent
 
 Responsibilities:
 
-- Explain how shape choices create impressions.
-- Explain eyeliner, brow, and lip-line concepts.
-- Explain undertone only as an optional concept, not as the core product claim.
+- Validate geometry
+- Detect confidence failures
+- Flag poor image quality
 
-## Color Exploration Agent
+Output:
 
-Deferred.
-
-Responsibilities when enabled:
-
-- Run low-confidence color preference exploration.
-- Clearly label digital color limitations.
-- Avoid definitive undertone diagnosis from uncontrolled photos.
-
+Confidence score.

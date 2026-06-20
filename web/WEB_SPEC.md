@@ -2,51 +2,42 @@
 
 ## Stack
 
-- Next.js
-- React
-- TypeScript
+- Node.js 24 LTS
+- Next.js 16.x
+- React 19.x
+- TypeScript 6.0.x
+- TanStack React Query 5.x
+- Zod 4.x for new schemas
 - Canvas API
-- Tailwind or CSS modules
+- CSS modules or app-level CSS
 
 ## Routes
 
 ```text
 /
-/learn
-/learn/[lessonSlug]
-/practice/[lessonId]
-/apply/[lessonId]
-/results/[resultId]
-/review/[shareToken]
+/coach
+/coach/[sessionId]
+/feedback
+/feedback/[resultId]
+/recommendations
 /profile
 ```
 
 ## Key Components
 
-- LessonCard
-- ImpressionSelector
+- CoachingTargetSelector
+- SelfieCapture
+- ImageQualityNotice
+- FaceAnalysisStatus
 - StepGuide
-- TraceCanvas
-- PracticeScoreCard
+- CoachingOverlay
+- FeedbackSummary
 - MirrorChecklist
 - BeforeAfterUploader
-- ReviewPrompt
-- ReviewResults
-
-## TraceCanvas Requirements
-
-- render target path
-- capture pointer events
-- support mouse, touch, stylus
-- resample points before API submission
-- display scoring feedback
-
-## Friend Review Page
-
-Must be fast, mobile-first, and not require account login.
+- RecommendationPanel
 
 ## Accessibility
 
-- keyboard navigable lesson pages
+- keyboard navigable coaching pages
 - accessible labels
-- high contrast line practice mode
+- high contrast overlay mode

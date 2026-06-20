@@ -4,39 +4,39 @@
 
 Preferred:
 
-- Kotlin or Java-compatible architecture
-- Jetpack Compose preferred if Kotlin is allowed
-- CameraX
+- JDK 17
+- Android Gradle Plugin 9.2.x
+- Gradle 9.4.x
+- Kotlin 2.4.x
+- Android SDK compileSdk 36
+- Android SDK targetSdk 36
+- Jetpack Compose with the latest stable Compose BOM
+- CameraX for camera flows
 - Retrofit/OkHttp
 - Room optional for local drafts
-
-If Java is required:
-
-- Android Views
-- custom View for trace practice
-- CameraX Java APIs
 
 ## Screens
 
 - HomeActivity
-- LessonListActivity
-- LessonDetailActivity
-- TracePracticeActivity
+- CoachingTargetActivity
+- SelfieCaptureActivity
+- CoachingResultActivity
 - MirrorModeActivity
-- UploadResultActivity
+- FeedbackUploadActivity
 - ReportActivity
 
-## Trace Practice
+## Coaching Overlay
 
-Implement as a custom drawing view.
+Implement overlay rendering with Compose.
 
 Responsibilities:
 
-- draw target path
-- capture user path
+- draw points, lines, curves, and regions
+- render step guidance
+- show image quality and confidence warnings
 - normalize coordinates
-- send to backend
-- display score
+- send image and coaching requests to backend
+- display feedback
 
 ## Mirror Mode
 
@@ -44,4 +44,4 @@ Use front camera preview with checklist overlay. Avoid precision AR promises in 
 
 ## Offline Behavior
 
-Practice attempts may be saved locally and uploaded later.
+Pending coaching or feedback submissions may be saved locally and uploaded later.

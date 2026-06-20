@@ -1,31 +1,22 @@
 :root {
-  --color-brand-cream: #fff8f1;
-  --color-brand-blush: #f6d5d8;
-  --color-brand-rose: #c96f7c;
-  --color-brand-cocoa: #5b3f3a;
-  --color-brand-charcoal: #2e2a2a;
-
-  --color-background-primary: #fff8f1;
-  --color-background-surface: #ffffff;
-  --color-text-primary: #2e2a2a;
-  --color-text-secondary: #6f5f5b;
-  --color-action-primary: #c96f7c;
-  --color-action-secondary: #f6d5d8;
-  --color-border-subtle: #e9dcd7;
+  --brand-blue: #a8ebff;
+  --brand-yellow: #fff8d6;
+  --brand-pink: #ffc7db;
+  --hero-bg: #dbf3fb;
+  --bg: #f7fafc;
+  --surface: #ffffff;
+  --text: #17324d;
+  --muted: #617082;
+  --border: #e6eef5;
 
   --color-success: #4f8a67;
   --color-warning: #b9822b;
   --color-error: #b94a48;
   --color-info: #5a7c9b;
 
-  --bg: var(--color-background-primary);
-  --surface: var(--color-background-surface);
-  --text: var(--color-text-primary);
-  --muted: var(--color-text-secondary);
-  --border: var(--color-border-subtle);
-  --primary: var(--color-action-primary);
-  --primary-soft: var(--color-action-secondary);
-  --focus: #7f4d57;
+  --primary: var(--brand-pink);
+  --primary-soft: var(--brand-yellow);
+  --focus: var(--brand-blue);
 }
 
 * {
@@ -40,7 +31,7 @@ body {
 body {
   margin: 0;
   background:
-    linear-gradient(180deg, rgba(246, 213, 216, 0.34), rgba(255, 248, 241, 0) 38%),
+    linear-gradient(180deg, var(--hero-bg), rgba(247, 250, 252, 0) 38%),
     var(--bg);
   color: var(--text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

@@ -1,49 +1,50 @@
-# Dear Style — Development Documentation v2
+# Dear Style
 
-Dear Style is a Dear Daughter Beauty service focused on **makeup drawing education, appearance design, and practice-based style discovery**.
+Dear Style is a Dear Daughter Beauty service focused on **AI-assisted makeup coaching**.
 
-This v2 documentation intentionally shifts the product away from an early emphasis on digital undertone/color diagnosis. Color harmony and undertone remain useful educational concepts, but they are no longer the primary MVP because digital color analysis is highly sensitive to lighting, camera processing, display calibration, material reflection, and synthetic compositing quality.
-
-## Product Positioning
-
-Dear Style helps users learn how to create desired impressions through makeup shape, especially eyeliner and lip-line technique.
-
-Core loop:
+The product helps users answer:
 
 ```text
-Choose impression goal
-→ Learn recommended drawing style
-→ Practice tracing the line on screen
-→ Apply in front of mirror
-→ Upload result
-→ Self/friend/AI review
-→ Improve with guided feedback
+How should I apply makeup on my own face?
 ```
 
-## Primary MVP
+The current pivot moves the project away from product-first color matching and toward face-geometry-based guidance:
 
-1. Eyeliner style guide
-2. Eyeliner trace practice mode
-3. Mirror-assisted application guide
-4. Before/after review upload
-5. Friend review for A/B result comparison
-6. Impression prediction and education
-7. Optional lip-line guide
+1. Analyze facial landmarks and visible feature geometry.
+2. Recommend placement and shape strategies.
+3. Generate makeup application guides and overlays.
+4. Review before/after results and provide correction feedback.
 
-## Deferred / Secondary
+## Primary MVP Direction
 
-- Digital undertone testing
-- Clothing/eyewear virtual try-on
-- High-fidelity virtual makeup rendering
-- Product recommendation
-- Brand insight analytics
+- Lip line coach
+- Eyebrow coach
+- Blush placement coach
+- Before/after makeup feedback
+
+## Agent Architecture
+
+The product is organized around the agents defined in [AGENTS.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/AGENTS.md):
+
+- Face Analysis Agent
+- Makeup Coach Agent
+- Recommendation Agent
+- QA Agent
+
+## Documentation
+
+- Product docs: [docs/product](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/product)
+- Architecture docs: [docs/architecture](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/architecture)
+- Technology stack: [docs/architecture/technology_stack.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/architecture/technology_stack.md)
+- UX docs: [docs/ux](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/ux)
+- AI docs: [docs/ai](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/ai)
+- Phase tasks: [docs/tasks](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/tasks)
 
 ## Technology Targets
 
-- Backend: Python FastAPI, PostgreSQL, SQLAlchemy, Alembic
-- Web: Next.js / React / TypeScript
-- Android: Native Android, Java or Kotlin-ready architecture
-- iOS: Swift / SwiftUI
-- Vision: MediaPipe/ML Kit/Apple Vision as optional modules
+- Backend: Python 3.14.6, FastAPI 0.138.x, PostgreSQL 18.4, SQLAlchemy 2.0.x, Alembic 1.18.x
+- Web: Node.js 24 LTS, Next.js 16.x, React 19.x, TypeScript 6.0.x
+- Android: JDK 17, Android Gradle Plugin 9.2.x, Gradle 9.4.x, Kotlin 2.4.x, Android SDK 36
+- iOS: Xcode 26.4.1+ stable, Swift 6.3.x, iOS 26 SDK
+- Vision: MediaPipe, ML Kit, Apple Vision, or a replaceable vision service
 - Storage: local dev storage, S3-compatible production storage
-

@@ -1,4 +1,4 @@
-# Phase 09 — Color Exploration
+# Phase 08 — Color Exploration
 
 ## Goal
 

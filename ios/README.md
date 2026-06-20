@@ -16,3 +16,7 @@ Phase 01 currently includes:
 - Consent view
 - Shared design token colors
 - API service skeleton for auth and consents
+
+## Version Baseline
+
+Use the latest stable Xcode, Swift, and iOS SDK listed in [../docs/architecture/technology_stack.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/architecture/technology_stack.md). Avoid beta or RC toolchains for release work.

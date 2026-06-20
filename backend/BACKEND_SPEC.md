@@ -2,13 +2,16 @@
 
 ## Stack
 
-- Python 3.12+
-- FastAPI
-- PostgreSQL
-- SQLAlchemy 2.x
-- Alembic
-- Pydantic
-- pytest
+- Python 3.14.6
+- FastAPI 0.138.x
+- PostgreSQL 18.4
+- SQLAlchemy 2.0.x
+- Alembic 1.18.x
+- Psycopg 3.3.x
+- Pydantic v2 / pydantic-settings 2.14.x
+- Uvicorn 0.49.x
+- pytest 9.x
+- Ruff 0.15.x
 
 ## Modules
 
@@ -16,11 +19,11 @@
 app/
   main.py
   api/
-    lessons.py
-    practice.py
+    face_analyses.py
+    coaching_sessions.py
     media.py
-    reviews.py
-    reports.py
+    feedback_results.py
+    recommendations.py
   core/
     config.py
     security.py
@@ -29,62 +32,52 @@ app/
     models.py
     migrations/
   services/
-    trace_scoring.py
-    review_summary.py
+    face_analysis.py
+    makeup_coaching.py
+    feedback_summary.py
     media_storage.py
   schemas/
-    lessons.py
-    practice.py
-    reviews.py
+    face_analyses.py
+    coaching.py
+    feedback.py
 ```
 
 ## Required Services
 
-### TraceScoringService
+### FaceAnalysisService
 
 Input:
 
-- target path
-- user path
+- source image metadata
+- validated image reference
 
 Output:
 
-- angle_score
-- length_score
-- smoothness_score
-- endpoint_score
-- total_score
-- feedback
+- facial regions
+- landmarks
+- geometry measurements
+- confidence score
+- warnings
 
-### LessonService
+### MakeupCoachingService
 
-Manages content-backed style lessons and drawing templates.
+Generates lip line, eyebrow, blush, and before/after feedback guidance.
 
-### ReviewService
+### RecommendationService
 
-Creates review sessions and aggregates votes.
+Generates style, occasion, and product category strategy.
 
 ### MediaService
 
 Creates upload URLs and tracks media metadata.
 
-## Seed Data
-
-Initial lessons:
-
-- Natural Tightline
-- Soft Outer Third Line
-- Soft Cat Eye
-- Classic Cat Eye
-- Puppy Eye
-- Horizontal Extension
-
 ## Testing
 
 Unit tests required for:
 
-- trace scoring
-- lesson filtering
-- review token expiration
-- review aggregation
+- image quality validation
+- face analysis confidence handling
+- coaching output schemas
+- feedback result generation
+- recommendation safety rules
 - media soft delete
