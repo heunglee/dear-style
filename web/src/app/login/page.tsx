@@ -7,7 +7,7 @@ export default function LoginPage() {
         <div className="panel-body">
           <div>
             <span className="eyebrow">Welcome back</span>
-            <h2>Continue your style test.</h2>
+            <h2>Continue your coaching flow.</h2>
           </div>
           <AuthForm mode="login" />
         </div>

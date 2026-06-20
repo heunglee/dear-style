@@ -7,7 +7,7 @@ export default function SignupPage() {
         <div className="panel-body">
           <div>
             <span className="eyebrow">Create account</span>
-            <h2>Start with your own comparisons.</h2>
+            <h2>Start with your own makeup coach.</h2>
           </div>
           <AuthForm mode="signup" />
         </div>

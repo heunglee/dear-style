@@ -14,8 +14,13 @@ Phase 01 currently includes:
 
 - Welcome view
 - Consent view
+- Coaching target view
 - Shared design token colors
-- API service skeleton for auth and consents
+- API service skeleton for auth, consents, image upload, face analysis, coaching, feedback, and recommendations
+
+## Shared API Types
+
+Mirror [../shared/api/type_conventions.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/shared/api/type_conventions.md) when adding Codable request and response types.
 
 ## Version Baseline
 

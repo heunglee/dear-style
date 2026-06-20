@@ -4,7 +4,7 @@ BACKEND_DIR := backend
 WEB_DIR := web
 ANDROID_DIR := android
 IOS_DIR := ios
-COMPOSE_FILE ?= docker-compose.example.yml
+COMPOSE_FILE ?= docker-compose.yml
 PYTHON ?= python3.14
 NPM ?= npm
 GRADLE ?= gradle
@@ -78,11 +78,11 @@ test: backend-test ## Run available automated tests.
 check: backend-test web-typecheck ios-build ## Run main checks for backend, web, and iOS.
 
 .PHONY: dev-up
-dev-up: ## Start local services from docker-compose.example.yml.
+dev-up: ## Start local services from docker-compose.yml.
 	@docker compose -f $(COMPOSE_FILE) up -d postgres redis
 
 .PHONY: dev-down
-dev-down: ## Stop local services from docker-compose.example.yml.
+dev-down: ## Stop local services from docker-compose.yml.
 	@docker compose -f $(COMPOSE_FILE) down
 
 .PHONY: dev-logs

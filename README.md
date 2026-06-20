@@ -39,6 +39,17 @@ The product is organized around the agents defined in [AGENTS.md](/Users/giyuk/W
 - UX docs: [docs/ux](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/ux)
 - AI docs: [docs/ai](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/ai)
 - Phase tasks: [docs/tasks](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/docs/tasks)
+- Shared API conventions: [shared/api/type_conventions.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/shared/api/type_conventions.md)
+
+## Local Services
+
+Start PostgreSQL and Redis for local development:
+
+```bash
+make dev-up
+```
+
+The backend default `DATABASE_URL` points at the `dearstyle` PostgreSQL database from `docker-compose.yml`.
 
 ## Technology Targets
 

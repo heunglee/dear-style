@@ -55,6 +55,62 @@ struct ConsentCreate: Encodable {
     }
 }
 
+struct UploadURLRequest: Encodable {
+    let mediaType: String
+    let purpose: String
+
+    enum CodingKeys: String, CodingKey {
+        case mediaType = "media_type"
+        case purpose
+    }
+}
+
+struct FaceAnalysisCreate: Encodable {
+    let imageID: UUID
+
+    enum CodingKeys: String, CodingKey {
+        case imageID = "image_id"
+    }
+}
+
+struct CoachingSessionCreate: Encodable {
+    let faceAnalysisID: UUID
+    let targetArea: String
+    let goal: String?
+
+    enum CodingKeys: String, CodingKey {
+        case faceAnalysisID = "face_analysis_id"
+        case targetArea = "target_area"
+        case goal
+    }
+}
+
+struct FeedbackResultCreate: Encodable {
+    let beforeImageID: UUID
+    let afterImageID: UUID
+    let targetArea: String
+    let userNotes: String?
+
+    enum CodingKeys: String, CodingKey {
+        case beforeImageID = "before_image_id"
+        case afterImageID = "after_image_id"
+        case targetArea = "target_area"
+        case userNotes = "user_notes"
+    }
+}
+
+struct RecommendationCreate: Encodable {
+    let faceAnalysisID: UUID
+    let occasion: String?
+    let styleGoal: String?
+
+    enum CodingKeys: String, CodingKey {
+        case faceAnalysisID = "face_analysis_id"
+        case occasion
+        case styleGoal = "style_goal"
+    }
+}
+
 final class APIService {
     private let baseURL: URL
     private let session: URLSession
@@ -84,6 +140,51 @@ final class APIService {
     func recordConsent(_ payload: ConsentCreate, token: String) async throws {
         let _: EmptyResponse = try await send(
             "/consents",
+            method: "POST",
+            body: payload,
+            token: token
+        )
+    }
+
+    func createUploadURL(_ payload: UploadURLRequest, token: String) async throws {
+        let _: EmptyResponse = try await send(
+            "/images/upload-url",
+            method: "POST",
+            body: payload,
+            token: token
+        )
+    }
+
+    func createFaceAnalysis(_ payload: FaceAnalysisCreate, token: String) async throws {
+        let _: EmptyResponse = try await send(
+            "/face-analyses",
+            method: "POST",
+            body: payload,
+            token: token
+        )
+    }
+
+    func createCoachingSession(_ payload: CoachingSessionCreate, token: String) async throws {
+        let _: EmptyResponse = try await send(
+            "/coaching-sessions",
+            method: "POST",
+            body: payload,
+            token: token
+        )
+    }
+
+    func createFeedbackResult(_ payload: FeedbackResultCreate, token: String) async throws {
+        let _: EmptyResponse = try await send(
+            "/feedback-results",
+            method: "POST",
+            body: payload,
+            token: token
+        )
+    }
+
+    func createRecommendation(_ payload: RecommendationCreate, token: String) async throws {
+        let _: EmptyResponse = try await send(
+            "/recommendations",
             method: "POST",
             body: payload,
             token: token

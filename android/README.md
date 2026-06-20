@@ -83,5 +83,10 @@ Phase 01 currently includes:
 
 - Welcome screen
 - Consent screen
+- Coaching target screen
 - Shared design token colors
-- API DTO/client skeleton for auth and consents
+- API DTO/client skeleton for auth, consents, image upload, face analysis, coaching, feedback, and recommendations
+
+## Shared API Types
+
+Mirror [../shared/api/type_conventions.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/shared/api/type_conventions.md) when adding Kotlin serialization DTOs.

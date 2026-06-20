@@ -260,6 +260,83 @@ p {
   background: #5b3f3a;
 }
 
+.coaching-visual {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.96) 0 13%, transparent 14%),
+    linear-gradient(180deg, rgba(255, 248, 214, 0.82), rgba(255, 199, 219, 0.26)),
+    #ffffff;
+}
+
+.face-guide {
+  position: absolute;
+  z-index: 2;
+  border: 2px solid var(--primary);
+  pointer-events: none;
+}
+
+.face-guide-lips {
+  top: 294px;
+  left: 50%;
+  width: 78px;
+  height: 24px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.face-guide-brow {
+  top: 244px;
+  width: 58px;
+  height: 18px;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  border-radius: 999px 999px 0 0;
+}
+
+.face-guide-brow-left {
+  left: calc(50% - 82px);
+  transform: rotate(-7deg);
+}
+
+.face-guide-brow-right {
+  right: calc(50% - 82px);
+  transform: rotate(7deg);
+}
+
+.coach-target-strip {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.coach-target-strip div {
+  min-height: 76px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  padding: 12px;
+}
+
+.coach-target-strip strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.coach-target-strip span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .comparison-strip {
   position: absolute;
   right: 18px;
@@ -385,6 +462,52 @@ p {
   gap: 36px;
   align-items: flex-start;
   padding-top: 52px;
+}
+
+.coach-page {
+  display: grid;
+  gap: 34px;
+  padding-top: 34px;
+}
+
+.coach-target-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.coach-target-card {
+  display: grid;
+  min-height: 190px;
+  align-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 44px rgba(91, 63, 58, 0.08);
+  padding: 18px;
+}
+
+.coach-target-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.coach-target-card p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.coach-target-card span {
+  justify-self: start;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--text);
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  font-weight: 900;
 }
 
 .consent-list {
@@ -1087,6 +1210,7 @@ p {
 
   .hero,
   .consent-page,
+  .coach-target-grid,
   .test-workspace {
     grid-template-columns: 1fr;
   }
@@ -1110,6 +1234,10 @@ p {
 
   .visual-panel::after {
     top: 322px;
+  }
+
+  .coach-target-strip {
+    grid-template-columns: 1fr;
   }
 
   .test-panel,

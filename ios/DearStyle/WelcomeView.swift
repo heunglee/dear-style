@@ -17,7 +17,7 @@ struct WelcomeView: View {
                         .lineLimit(2)
                         .minimumScaleFactor(0.8)
 
-                    Text("Compare gentle A/B looks and discover which color families repeatedly feel more harmonious on you.")
+                    Text("A makeup coach for lip line, brows, blush, and before/after feedback.")
                         .font(.system(size: 17))
                         .lineSpacing(5)
                         .foregroundStyle(DesignTokens.cocoa)
@@ -25,7 +25,7 @@ struct WelcomeView: View {
                     Button {
                         showsConsent = true
                     } label: {
-                        Text("Start Color Harmony Test")
+                        Text("Start Makeup Coach")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(PrimaryButtonStyle())

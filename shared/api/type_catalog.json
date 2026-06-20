@@ -1,0 +1,80 @@
+{
+  "version": "0.1.0",
+  "base_path": "/api/v1",
+  "field_case": "snake_case",
+  "scalar_conventions": {
+    "id": "uuid-string",
+    "datetime": "iso-8601-string",
+    "confidence_score": "number-0-to-1",
+    "warnings": "string-array"
+  },
+  "enums": {
+    "ConsentType": [
+      "face_image_upload",
+      "raw_image_storage",
+      "friend_review_sharing",
+      "anonymized_analytics"
+    ],
+    "ImagePurpose": [
+      "selfie",
+      "before",
+      "after"
+    ],
+    "CoachingTargetArea": [
+      "lip_line",
+      "eyebrow",
+      "blush",
+      "full_feedback"
+    ],
+    "JobStatus": [
+      "pending",
+      "processing",
+      "completed",
+      "failed"
+    ],
+    "CoachingSessionStatus": [
+      "started",
+      "completed",
+      "failed"
+    ]
+  },
+  "dtos": {
+    "auth": [
+      "RegisterRequest",
+      "LoginRequest",
+      "AuthResponse",
+      "UserRead"
+    ],
+    "consents": [
+      "ConsentCreate",
+      "ConsentRead"
+    ],
+    "images": [
+      "UploadUrlRequest",
+      "UploadUrlResponse"
+    ],
+    "face_analysis": [
+      "FaceAnalysisCreate",
+      "FaceAnalysisRead"
+    ],
+    "coaching": [
+      "CoachingSessionCreate",
+      "CoachingSessionRead",
+      "CoachingGuideRead"
+    ],
+    "feedback": [
+      "FeedbackResultCreate",
+      "FeedbackResultRead"
+    ],
+    "recommendations": [
+      "RecommendationCreate",
+      "RecommendationRead"
+    ]
+  },
+  "deferred": [
+    "color_exploration",
+    "trace_practice",
+    "friend_review",
+    "product_catalog"
+  ]
+}

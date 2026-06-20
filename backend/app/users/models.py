@@ -25,8 +25,3 @@ class User(Base):
     )
 
     consents = relationship("UserConsent", back_populates="user", cascade="all, delete-orphan")
-    image_assets = relationship("ImageAsset", back_populates="user", cascade="all, delete-orphan")
-    comparison_sessions = relationship(
-        "ComparisonSession", back_populates="user", cascade="all, delete-orphan"
-    )
-    reports = relationship("Report", back_populates="user", cascade="all, delete-orphan")

@@ -7,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Dear Style",
-  description: "Comparison-based style discovery from Dear Daughter Beauty"
+  description: "AI makeup coaching from Dear Daughter Beauty"
 };
 
 export default function RootLayout({

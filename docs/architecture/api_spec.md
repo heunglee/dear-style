@@ -2,6 +2,8 @@
 
 Base path: `/api/v1`
 
+Shared type conventions live in [../../shared/api/type_conventions.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/shared/api/type_conventions.md). Platform DTOs should mirror those enum values and JSON field names.
+
 ## Images
 
 ### POST /images/upload-url

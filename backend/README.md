@@ -26,6 +26,9 @@ python -m venv .venv
 Run migrations after PostgreSQL is available:
 
 ```bash
+cd ..
+make dev-up
+cd backend
 alembic upgrade head
 ```
 
@@ -50,6 +53,10 @@ pytest
 - `GET /api/v1/consents`
 - `POST /api/v1/consents`
 - `GET /health`
+
+## Shared API Types
+
+Mirror [../shared/api/type_conventions.md](/Users/giyuk/Workspace/deardaughterbeauty.com/dear-style/shared/api/type_conventions.md) when adding or changing request and response schemas.
 
 ## Version Baseline
 

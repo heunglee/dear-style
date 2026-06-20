@@ -5,11 +5,7 @@ from sqlalchemy import engine_from_config, pool
 
 from app.core.config import settings
 from app.core.database import Base
-from app.comparisons.models import ComparisonPair, ComparisonSession  # noqa: F401
 from app.consents.models import UserConsent  # noqa: F401
-from app.images.models import ImageAsset  # noqa: F401
-from app.reports.models import Report  # noqa: F401
-from app.reviews.models import Review, ReviewVote  # noqa: F401
 from app.users.models import User  # noqa: F401
 
 config = context.config

@@ -66,12 +66,12 @@ export function AppHeader() {
       <nav className="nav-actions" aria-label="Primary">
         {user ? (
           <>
-            <Link className="profile-chip" href="/upload" title={user.email}>
+            <Link className="profile-chip" href="/coach" title={user.email}>
               <span>{initialForUser(user)}</span>
               <strong>{user.display_name || user.email}</strong>
             </Link>
-            <Link className="button button-primary" href="/upload">
-              Test
+            <Link className="button button-primary" href="/coach">
+              Coach
             </Link>
             <button className="button button-ghost" onClick={handleLogout} type="button">
               Log out

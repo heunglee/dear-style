@@ -12,7 +12,7 @@
 		9E1A00000000000000000013 /* ConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A00000000000000000003 /* ConsentView.swift */; };
 		9E1A00000000000000000014 /* DesignTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A00000000000000000004 /* DesignTokens.swift */; };
 		9E1A00000000000000000015 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A00000000000000000005 /* APIService.swift */; };
-		9E1A00000000000000000016 /* ColorHarmonyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A00000000000000000007 /* ColorHarmonyView.swift */; };
+		9E1A00000000000000000016 /* CoachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1A00000000000000000007 /* CoachView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +22,7 @@
 		9E1A00000000000000000004 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		9E1A00000000000000000005 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9E1A00000000000000000006 /* DearStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DearStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E1A00000000000000000007 /* ColorHarmonyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHarmonyView.swift; sourceTree = "<group>"; };
+		9E1A00000000000000000007 /* CoachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 				9E1A00000000000000000001 /* DearStyleApp.swift */,
 				9E1A00000000000000000002 /* WelcomeView.swift */,
 				9E1A00000000000000000003 /* ConsentView.swift */,
-				9E1A00000000000000000007 /* ColorHarmonyView.swift */,
+				9E1A00000000000000000007 /* CoachView.swift */,
 				9E1A00000000000000000004 /* DesignTokens.swift */,
 				9E1A00000000000000000005 /* APIService.swift */,
 			);
@@ -137,7 +137,7 @@
 				9E1A00000000000000000011 /* DearStyleApp.swift in Sources */,
 				9E1A00000000000000000012 /* WelcomeView.swift in Sources */,
 				9E1A00000000000000000013 /* ConsentView.swift in Sources */,
-				9E1A00000000000000000016 /* ColorHarmonyView.swift in Sources */,
+				9E1A00000000000000000016 /* CoachView.swift in Sources */,
 				9E1A00000000000000000014 /* DesignTokens.swift in Sources */,
 				9E1A00000000000000000015 /* APIService.swift in Sources */,
 			);

@@ -7,12 +7,15 @@ class DearStyleApiClient(
 ) {
     fun registerUrl() = "$baseUrl/auth/register"
     fun loginUrl() = "$baseUrl/auth/login"
+    fun currentUserUrl() = "$baseUrl/auth/me"
     fun consentsUrl() = "$baseUrl/consents"
     fun imageUploadUrl() = "$baseUrl/images/upload-url"
-    fun imageConfirmUrl(imageAssetId: String) = "$baseUrl/images/$imageAssetId/confirm"
-    fun comparisonSessionsUrl() = "$baseUrl/comparison-sessions"
-    fun selfReviewUrl(sessionId: String) = "$baseUrl/comparison-sessions/$sessionId/self-review"
-    fun reportUrl(sessionId: String) = "$baseUrl/comparison-sessions/$sessionId/report"
+    fun faceAnalysesUrl() = "$baseUrl/face-analyses"
+    fun coachingSessionsUrl() = "$baseUrl/coaching-sessions"
+    fun coachingSessionUrl(sessionId: String) = "$baseUrl/coaching-sessions/$sessionId"
+    fun feedbackResultsUrl() = "$baseUrl/feedback-results"
+    fun feedbackResultUrl(resultId: String) = "$baseUrl/feedback-results/$resultId"
+    fun recommendationsUrl() = "$baseUrl/recommendations"
 }
 
 @Serializable
@@ -37,39 +40,33 @@ data class ConsentCreate(
 
 @Serializable
 data class UploadUrlRequest(
-    val mime_type: String,
-    val asset_type: String,
+    val media_type: String,
+    val purpose: String,
 )
 
 @Serializable
-data class UploadUrlResponse(
-    val image_asset_id: String,
-    val upload_url: String,
-    val storage_key: String,
+data class FaceAnalysisCreate(
+    val image_id: String,
 )
 
 @Serializable
-data class ImageConfirmRequest(
-    val width: Int? = null,
-    val height: Int? = null,
+data class CoachingSessionCreate(
+    val face_analysis_id: String,
+    val target_area: String,
+    val goal: String? = null,
 )
 
 @Serializable
-data class ComparisonSessionCreate(
-    val image_asset_id: String,
-    val session_type: String,
-    val environment_label: String? = null,
+data class FeedbackResultCreate(
+    val before_image_id: String,
+    val after_image_id: String,
+    val target_area: String,
+    val user_notes: String? = null,
 )
 
 @Serializable
-data class SelfReviewCreate(
-    val votes: List<ReviewVoteCreate>,
-)
-
-@Serializable
-data class ReviewVoteCreate(
-    val comparison_pair_id: String,
-    val selected_option: String,
-    val prompt_key: String,
-    val confidence: Int,
+data class RecommendationCreate(
+    val face_analysis_id: String,
+    val occasion: String? = null,
+    val style_goal: String? = null,
 )

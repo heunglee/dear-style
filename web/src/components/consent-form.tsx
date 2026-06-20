@@ -10,7 +10,7 @@ const consentVersion = "2026-01";
 const requiredConsents: Array<{ type: ConsentType; label: string }> = [
   {
     type: "face_image_upload",
-    label: "Use my face photo for comparison-based style tests."
+    label: "Use my face photo for makeup coaching and feedback."
   },
   {
     type: "raw_image_storage",
@@ -21,11 +21,11 @@ const requiredConsents: Array<{ type: ConsentType; label: string }> = [
 const optionalConsents: Array<{ type: ConsentType; label: string }> = [
   {
     type: "friend_review_sharing",
-    label: "Let me create private friend review links when I choose."
+    label: "Let me create private review links later if that feature is enabled."
   },
   {
     type: "anonymized_analytics",
-    label: "Use anonymized preference patterns to improve shade and style insights."
+    label: "Use anonymized coaching patterns to improve guidance quality."
   }
 ];
 
@@ -53,8 +53,8 @@ export function ConsentForm() {
       );
 
       await Promise.all(records);
-      setSuccess("Consent saved. Color Harmony Test is next.");
-      router.push("/upload");
+      setSuccess("Consent saved. Makeup Coach is next.");
+      router.push("/coach");
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "Please try again.");
     } finally {

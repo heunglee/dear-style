@@ -6,7 +6,7 @@ struct ConsentView: View {
     @State private var friendReviewConsent = false
     @State private var anonymizedAnalyticsConsent = false
     @State private var saved = false
-    @State private var showsColorHarmony = false
+    @State private var showsCoach = false
 
     var body: some View {
         ZStack {
@@ -18,14 +18,14 @@ struct ConsentView: View {
                         .font(.system(size: 38, weight: .bold))
                         .foregroundStyle(DesignTokens.charcoal)
 
-                    Text("Dear Style uses your photo for comparison sessions you choose to run. Sharing stays off unless you create a friend review link.")
+                    Text("Dear Style uses your photo only for the coaching and feedback you choose to run.")
                         .font(.system(size: 16))
                         .lineSpacing(5)
                         .foregroundStyle(DesignTokens.cocoa)
 
                     VStack(spacing: 12) {
                         ConsentToggle(
-                            label: "Use my face photo for comparison-based style tests.",
+                            label: "Use my face photo for makeup coaching and feedback.",
                             isOn: $faceImageConsent
                         )
                         ConsentToggle(
@@ -33,25 +33,25 @@ struct ConsentView: View {
                             isOn: $rawImageStorageConsent
                         )
                         ConsentToggle(
-                            label: "Let me create private friend review links when I choose.",
+                            label: "Let me create private review links later if that feature is enabled.",
                             isOn: $friendReviewConsent
                         )
                         ConsentToggle(
-                            label: "Use anonymized preference patterns to improve shade and style insights.",
+                            label: "Use anonymized coaching patterns to improve guidance quality.",
                             isOn: $anonymizedAnalyticsConsent
                         )
                     }
                     .padding(.top, 8)
 
                     if saved {
-                        Text("Consent saved. Upload begins in Phase 02.")
+                        Text("Consent saved. Makeup Coach is next.")
                             .font(.callout.weight(.semibold))
                             .foregroundStyle(DesignTokens.success)
                     }
 
                     Button {
                         saved = true
-                        showsColorHarmony = true
+                        showsCoach = true
                     } label: {
                         Text("Save consent")
                             .frame(maxWidth: .infinity)
@@ -65,8 +65,8 @@ struct ConsentView: View {
         }
         .navigationTitle("Consent")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationDestination(isPresented: $showsColorHarmony) {
-            ColorHarmonyView()
+        .navigationDestination(isPresented: $showsCoach) {
+            CoachView()
         }
     }
 }
